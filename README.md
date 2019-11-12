@@ -6,9 +6,11 @@
 
 # Rules for contributing 
 
-1.) When creating new features, the person who created the feature needs provide a corresponding test case.
+1.) When creating new features, the person who created the feature needs provide a corresponding test case. ()
 
 2.) All component styles should be written in styled-components and sass.
+
+3.) Before creating a pull. All existing tests needs to pass
 
 
 ## Getting Started
