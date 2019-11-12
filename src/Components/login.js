@@ -52,7 +52,7 @@ export default Login;
 
 
 const LoginContainer = Style.div`
-    margin-top: 20px;
+    margin-top: 40px;
     width: 486px;
     height: 326px;
     background: ${bgColor};

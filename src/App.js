@@ -1,13 +1,12 @@
 import React from 'react';
 import './SASS/index.scss'
-import Login from './Components/login'
+import {Route} from 'react-router-dom';
+import LoginRoute from './Route/loginRoute';
 
 function App() {
   return (
     <div className="App">
-      <div className='container'>
-        <Login /> 
-      </div>
+      <Route exact path='/login' component={LoginRoute} />
     </div>
   );
 }
