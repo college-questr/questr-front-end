@@ -1,7 +1,5 @@
 # qeustr-front-end
 
-# Project Title
-
   This project is about creating an app that can guide college student by giving them resources specifc to their school instructors and classes
 
 # Rules for contributing 
