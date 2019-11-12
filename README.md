@@ -7,6 +7,7 @@
 # Rules for contributing 
 
 1.) When creating new features, the person who created the feature needs provide a corresponding test case.
+
 2.) All component styles should be written in styled-components and sass.
 
 
@@ -68,13 +69,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
