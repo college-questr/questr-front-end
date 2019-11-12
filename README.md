@@ -47,6 +47,10 @@ End with an example of getting some data out of the system or using it for a lit
 
 we are going to be using https://github.com/testing-library/react-testing-library
 
+```
+npm install --save-dev @testing-library/react
+```
+
 ### Break down into end to end tests
 
 Explain what these tests test and why
