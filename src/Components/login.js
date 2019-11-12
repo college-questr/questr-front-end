@@ -46,7 +46,7 @@ const LoginForm = Style.form`
 `
 
 const LoginInput = Style.input`
-    background: #${bgColor};
+    background: ${bgColor};
     border: 1px solid ${labelColor};
     border-radius: 5px;
     width: 395px;
