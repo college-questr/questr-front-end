@@ -6,9 +6,9 @@
 
 1.) When creating new features, the person who created the feature needs to provide a corresponding test case. 
 
-2.) All component styles should be written in styled-components and sass.
+2.) All component styles should be written in styled-components and sass. can also use semantic ui if you want.
 
-3.) Before creating a pull. All existing tests needs to pass
+3.) Before creating a pull. All existing tests needs to pass.
 
 
 ## Getting Started
