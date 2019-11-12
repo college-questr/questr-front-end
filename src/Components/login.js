@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { buttonColor, bgColor, borderColor, labelColor, mainFont, loginButtonText } from './Styles/variables'
 import Style from 'styled-components';
 
 const Login = (props) => {
@@ -25,14 +26,12 @@ const Login = (props) => {
 export default Login;
 
 
-const buttonColor = "#93B2E0";
-
 const LoginContainer = Style.div`
     margin-top: 20px;
     width: 486px;
     height: 326px;
-    background: #FFFFFF;
-    border: 1px solid #F7FAFC;
+    background: ${bgColor};
+    border: 1px solid ${borderColor};
     border-radius: 15px;
     display:flex;
     justify-content:center;
@@ -47,20 +46,20 @@ const LoginForm = Style.form`
 `
 
 const LoginInput = Style.input`
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.61);
+    background: #${bgColor};
+    border: 1px solid ${labelColor};
     border-radius: 5px;
     width: 395px;
     height: 47px;
 `
 const LoginLabel = Style.label`
-    font-family: Roboto;
+    font-family: ${mainFont};
     font-style: normal;
     font-weight: normal;
     font-size: 1rem;
     line-height: 21px;
     margin: 10px 0px;
-    color: rgba(0, 0, 0, 0.64);
+    color: ${labelColor};
 `
 
 const InputContainer = Style.div`
@@ -77,18 +76,17 @@ const SubmitButton = Style.button`
     border: 5px solid ${buttonColor};
     box-sizing: border-box;
     border-radius: .2rem;
-    font-family: Roboto;
+    font-family: ${mainFont};
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    color: #FFFFFF;
+    color: ${loginButtonText};
     transition: 1s;
 
     &:hover{
         cursor:pointer;
         border: 2px solid #4169E1;
-
     }
 `
 
