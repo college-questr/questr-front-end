@@ -3,18 +3,46 @@ import { buttonColor, bgColor, borderColor, labelColor, mainFont, loginButtonTex
 import Style from 'styled-components';
 
 const Login = (props) => {
+
+    const [credentials, setCredentials] = useState({ email:"", password:""})
+
+    const onChangeHandler = event => {
+        setCredentials({
+            ...credentials,
+            [event.target.name]: event.target.value
+        });
+    }
+
+    const submitHandler = (e) => {
+        //some api call
+        e.preventDefault();
+        console.log("submitted")
+    }
+
     return (
         <LoginContainer>
-            <LoginForm>
+            <LoginForm onSubmit={submitHandler}>
 
                 <InputContainer>
                 <LoginLabel htmlFor="email"> Email </LoginLabel>
-                <LoginInput type='text' name='Email' placeholder="example@gmail.com"/>
+                <LoginInput 
+                    type='text' 
+                    name='email' 
+                    placeholder="example@gmail.com"
+                    onChange={e => {
+                        onChangeHandler(e);
+                    }}/>
                 </InputContainer>
 
                 <InputContainer>
                 <LoginLabel htmlFor="password"> Password </LoginLabel>
-                <LoginInput type='password' name='password' placeholder="password" />
+                <LoginInput 
+                    type='password' 
+                    name='password' 
+                    placeholder="password"
+                    onChange={e => {
+                        onChangeHandler(e);
+                    }} />
                 </InputContainer>
 
                 <SubmitButton type='submit'>Login</SubmitButton>
