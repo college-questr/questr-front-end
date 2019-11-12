@@ -15,6 +15,7 @@ const Login = (props) => {
 
     const submitHandler = (e) => {
         //some api call
+
         e.preventDefault();
         console.log("submitted")
     }
@@ -29,9 +30,7 @@ const Login = (props) => {
                     type='text' 
                     name='email' 
                     placeholder="example@gmail.com"
-                    onChange={e => {
-                        onChangeHandler(e);
-                    }}/>
+                    onChange={onChangeHandler}/>
                 </InputContainer>
 
                 <InputContainer>
@@ -40,9 +39,7 @@ const Login = (props) => {
                     type='password' 
                     name='password' 
                     placeholder="password"
-                    onChange={e => {
-                        onChangeHandler(e);
-                    }} />
+                    onChange={onChangeHandler} />
                 </InputContainer>
 
                 <SubmitButton type='submit'>Login</SubmitButton>
