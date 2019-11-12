@@ -1,0 +1,9 @@
+.App{
+    background: $main-bg-color;
+    min-height: 800px;
+
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+}

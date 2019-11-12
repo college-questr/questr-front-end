@@ -135,3 +135,19 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+
+}
+
+body{
+    background: $main-bg-color;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding-left:10px;
+    font-size:1rem;
+}
