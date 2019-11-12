@@ -4,7 +4,7 @@
 
 # Rules for contributing 
 
-1.) When creating new features, the person who created the feature needs provide a corresponding test case. ()
+1.) When creating new features, the person who created the feature needs to provide a corresponding test case. 
 
 2.) All component styles should be written in styled-components and sass.
 
