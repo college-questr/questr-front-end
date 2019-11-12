@@ -5,7 +5,7 @@ import LoginNav from '../Components/Nav/loginNav';
 const LoginPage = (props) => {
     return (
         <div className='container'>
-            <LoginNav />
+            <LoginNav page='login' />
             <Login />
         </div>
     )
