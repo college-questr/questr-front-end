@@ -1,17 +1,20 @@
 import React from 'react';
 import Style from 'styled-components';
-import {labelColor, mainFont} from '../Styles/variables';
+import { labelColor, mainFont } from '../Styles/variables';
+import { NavLink } from 'react-router-dom';
 
 const LoginNav = (props) => {
-    return(
+    return (
         <NavContainer>
-            <LeftSection> 
+            <LeftSection>
                 <Logo>Questr</Logo>
             </LeftSection>
             <RightSection>
                 <NavEl>Home</NavEl>
                 <NavEl>About Us</NavEl>
-                <NavEl>Sign Up</NavEl>
+                <NavEl>
+                    <NavLink style={{ textDecoration: 'none', color:`${labelColor}` }} to='/signup'>Sign Up </NavLink>
+                </NavEl>
             </RightSection>
         </NavContainer>
     )
@@ -24,15 +27,11 @@ const NavContainer = Style.nav`
     display:flex;
     flex-flow: row nowrap;
     justify-content:space-between;
-    align-items:center;
 `
 
 const LeftSection = Style.div`
-    margin-left:30px;
+    margin:15px 30px;
     font-size:2rem;
-            padding-bottom:20px;
-
-    
 `
 
 const RightSection = Style.div`
