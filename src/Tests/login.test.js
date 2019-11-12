@@ -9,6 +9,7 @@ test("check if login component renders", () => {
 //create test for change handlers accepting input
 test("check change handlers of login inputs", () => {
     const {getByPlaceholderText}  = render(<Login />);
+
     fireEvent.change(getByPlaceholderText(/example@gmail.com/i), {
         target: {
             value: 'kim'
@@ -25,7 +26,7 @@ test("check change handlers of login inputs", () => {
     expect(getByPlaceholderText(/password/i).value).toBe("password");
 })
 
-//
+//check if text renders
 test("check login rendered texts", () => {
     const {getByText}  = render(<Login />);
     expect(getByText(/Email/i).innerHTML).toBe(" Email ");
@@ -35,3 +36,4 @@ test("check login rendered texts", () => {
 
 
 //create test for submit handler
+// need to create this once the back end is made
