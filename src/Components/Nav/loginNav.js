@@ -4,6 +4,8 @@ import { labelColor, mainFont } from '../Styles/variables';
 import { NavLink } from 'react-router-dom';
 
 const LoginNav = (props) => {
+
+
     return (
         <NavContainer>
             <LeftSection>
@@ -13,7 +15,11 @@ const LoginNav = (props) => {
                 <NavEl>Home</NavEl>
                 <NavEl>About Us</NavEl>
                 <NavEl>
-                    <NavLink style={{ textDecoration: 'none', color:`${labelColor}` }} to='/signup'>Sign Up </NavLink>
+                    <NavLink 
+                        style={{ textDecoration: 'none', color: `${labelColor}` }}  
+                        to={props.page === "signup" ? "/login" : "/signup"}>
+                        {props.page === "signup" ? "Login" : "Sign Up"}
+                    </NavLink>
                 </NavEl>
             </RightSection>
         </NavContainer>
