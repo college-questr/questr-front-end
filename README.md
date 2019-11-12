@@ -18,28 +18,6 @@ npm install
 npm start
 ```
 
-### Prerequisites
-
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
 
 End with an example of getting some data out of the system or using it for a little demo
 
@@ -51,28 +29,21 @@ we are going to be using https://github.com/testing-library/react-testing-librar
 npm install --save-dev @testing-library/react
 ```
 
-### Break down into end to end tests
-
-Explain what these tests test and why
+to run tests run 
 
 ```
-Give an example
+npm test
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+not deployed yet
 
 ## Built With
 
+  - React/Redux
+  - Node.js
 
 ## Versioning
 
