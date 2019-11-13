@@ -10,6 +10,9 @@
 
 3.) Before creating a pull. All existing tests needs to pass When you do make a pull request add me @kiamco as a reviewer.
 
+## keep in mind
+
+  -we dont have a backend yet so anything that invloves and api call just leave it blank
 
 ## Getting Started
 
