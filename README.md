@@ -54,6 +54,12 @@ to run tests run
 npm test
 ```
 
+## React Routes
+
+  -/login
+  -/signup
+  -/add-question
+
 
 ## Deployment
 
