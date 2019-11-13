@@ -51,7 +51,7 @@ const Logo = Style.h1`
 
 `
 
-const NavEl = Style.a`
+const NavEl = Style.div`
     margin: 25px 0 25px 0;
     font-family: ${mainFont};
     font-style: normal;
