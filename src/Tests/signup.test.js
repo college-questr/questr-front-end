@@ -1,6 +1,8 @@
 import React from 'react';
 import Signup from '../Components/signup';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, getByLabelText } from '@testing-library/react';
+import { BrowserRouter, MemoryRouter, Route } from 'react-router-dom';
+
 
 test("check if signup component renders", () => {
   render(<Signup />)
@@ -8,7 +10,7 @@ test("check if signup component renders", () => {
 
 //create test for change handlers accepting input
 test("check change handlers of signup inputs", () => {
-  const { getByPlaceholderText } = render(<Signup />);
+  const { getByPlaceholderText } = render(<BrowserRouter><Signup /></BrowserRouter>);
 
   fireEvent.change(getByPlaceholderText(/example@gmail.com/i), {
     target: {
@@ -16,22 +18,28 @@ test("check change handlers of signup inputs", () => {
     }
   });
 
-  fireEvent.change(getByPlaceholderText(/password/i), {
+  fireEvent.change(getByPlaceholderText("password"), {
+    target: {
+      value: 'password'
+    }
+  });
+
+  fireEvent.change(getByPlaceholderText(/Re-enter password/i), {
     target: {
       value: 'password'
     }
   });
 
   expect(getByPlaceholderText(/example@gmail.com/i).value).toBe("dj");
-  expect(getByPlaceholderText(/password/i).value).toBe("password");
+  expect(getByPlaceholderText("password").value).toBe("password");
+  expect(getByPlaceholderText(/Re-enter password/i).value).toBe("password")
 })
 
 //check if text renders
 test("check signup rendered texts", () => {
-  const { getByText, findAllByText } = render(<Signup />);
+  const { getByText } = render(<Signup />);
   expect(getByText(/Email/i).innerHTML).toBe(" Email ");
-  expect(findAllByText(/Password/i).innerHTML).toBe(" Password ");
-  expect(getByText(/Signup/i).innerHTML).toBe("Signup");
+  expect(getByText("Password").innerHTML).toBe(" Password ");
 })
 
 

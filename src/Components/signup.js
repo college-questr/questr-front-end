@@ -23,7 +23,7 @@ const Signup = (props) => {
   return (
     <SignupContainer>
       <SignupForm onSubmit={submitHandler}>
-        <H1>Signup</H1>
+        <H1>Sign up</H1>
         <InputContainer>
           <SignupLabel htmlFor="email"> Email </SignupLabel>
           <SignupInput
@@ -47,11 +47,11 @@ const Signup = (props) => {
           <SignupInput
             type='password'
             name='reEnter'
-            placeholder="password"
+            placeholder="Re-enter password"
             onChange={onChangeHandler} />
         </InputContainer>
 
-        <SubmitButton type='submit'>Signup</SubmitButton>
+        <SubmitButton type='submit'>Sign up</SubmitButton>
       </SignupForm>
     </SignupContainer>
   )
