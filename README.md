@@ -36,6 +36,10 @@ npm start
 
 then you can start working! :)
 
+## Submitting a pull request 
+
+once you are done working on you issue create a pull request to master from your branch and add @kiamco as a reviewer
+
 ## Running the tests
 
 we are going to be using https://github.com/testing-library/react-testing-library
