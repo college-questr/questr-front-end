@@ -8,7 +8,7 @@
 
 2.) All component styles should be written in styled-components and you can position them throughout the page using sass. can also use semantic ui if you want.
 
-3.) Before creating a pull. All existing tests needs to pass When you do make a pull request add me @kiamco as a reviewer.
+3.) Before creating a pull. All existing tests needs to pass When you do make a pull request add me @kiamco or @docoleman36 as a reviewer.
 
 ## keep in mind
 
@@ -38,7 +38,7 @@ then you can start working! :)
 
 ## Submitting a pull request 
 
-once you are done working on you issue create a pull request to master from your branch and add @kiamco as a reviewer
+once you are done working on you issue create a pull request to master from your branch and add @kiamco or @docoleman36 as a reviewer
 
 ## Running the tests
 
