@@ -16,10 +16,25 @@
 
 ## Getting Started
 
+clone the repo
+
+```
+git clone https://github.com/college-questr/questr-front-end.git
+```
+
+checkout a branch 
+
+```
+git checkout -b <your branch name>
+git push -u origin <your branch name>
+```
+
 ```
 npm install
 npm start
 ```
+
+then you can start working! :)
 
 ## Running the tests
 
