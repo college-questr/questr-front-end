@@ -1,23 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import { buttonColor, bgColor, borderColor, labelColor, mainFont, loginButtonText } from './Styles/variables'
+import { buttonColor, mainFont, loginButtonText } from './Styles/variables'
 import Style from 'styled-components';
 
 const QuestionForm = () => {
 
+  const [question, setQuestion] = useState([])
+
+  const onChangeHandler = event => {
+    setQuestion({
+      ...question,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  const submitHandler = (e) => {
+    //some api call
+
+    e.preventDefault();
+    console.log("submitted")
+  }
 
   return (
     <div className="question-container">
       <div className="main-content">
         <h1 className="h1-form">Ask a question and join the community</h1>
-        <form className="question-form">
+        <form className="question-form" onSubmit={submitHandler}>
+
           <label htmlFor="question-title">Question Title</label>
           <input
             type="text"
             name="question-title"
             className="question-input"
+            onChange={onChangeHandler}
           />
 
-          <textarea className="text-area" name="question" rows="20" cols="30" />
+          <textarea
+            className="text-area"
+            name="question"
+            rows="15"
+            cols="30"
+            onChange={onChangeHandler}
+          />
 
           <SubmitButton type='submit'>Submit</SubmitButton>
         </form>
