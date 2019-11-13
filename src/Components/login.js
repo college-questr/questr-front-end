@@ -22,6 +22,8 @@ const Login = (props) => {
 
     return (
         <LoginContainer>
+            <LoginHeader>Login</LoginHeader>
+
             <LoginForm onSubmit={submitHandler}>
 
                 <InputContainer>
@@ -52,13 +54,14 @@ export default Login;
 
 
 const LoginContainer = Style.div`
-    margin-top: 40px;
+    margin-top: 50px;
     width: 486px;
     height: 326px;
     background: ${bgColor};
     border: 1px solid ${borderColor};
     border-radius: 15px;
     display:flex;
+    flex-flow: column nowrap;
     justify-content:center;
     align-items:center;
 `
@@ -114,4 +117,8 @@ const SubmitButton = Style.button`
         border: 2px solid #4169E1;
     }
 `
+const LoginHeader = Style.h1`
+      font-size: 30px
 
+    font-color: black;
+`

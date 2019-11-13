@@ -6,10 +6,13 @@
 
 1.) When creating new features, the person who created the feature needs to provide a corresponding test case. 
 
-2.) All component styles should be written in styled-components and sass. can also use semantic ui if you want.
+2.) All component styles should be written in styled-components and you can position them throughout the page using sass. can also use semantic ui if you want.
 
-3.) Before creating a pull. All existing tests needs to pass.
+3.) Before creating a pull. All existing tests needs to pass When you do make a pull request add me @kiamco as a reviewer.
 
+## keep in mind
+
+  -we dont have a backend yet so anything that invloves and api call just leave it blank
 
 ## Getting Started
 
@@ -17,9 +20,6 @@
 npm install
 npm start
 ```
-
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -44,6 +44,9 @@ not deployed yet
 
   - React/Redux
   - Node.js
+  - Styled components
+  - SASS
+  - React hooks
 
 ## Versioning
 
