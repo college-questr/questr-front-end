@@ -29,6 +29,6 @@ test('check if router NavLink is working on login and signup page', () => {
         fireEvent.click(getByText(/Login/i));
         expect(window.location.pathname).toBe("/login")
     },2000);
-
-
 })
+
+// when landing page is done create test that would check the links for Homa and about button
