@@ -1,0 +1,61 @@
+.test{
+  margin-bottom: 50px;
+}
+
+.item-container{
+  display: flex;
+  width: 800px;
+  margin-top: 50px;
+  margin-left: 30px;
+  border-bottom: 1px solid #d0cdcd;
+  padding-bottom: 10px;
+
+  .upvote{
+    display: flex;
+    margin-right: 30px;
+    color: #636161;
+
+    .votes{
+      background-color: #D3D0D0
+    }
+
+    p{
+      margin-right: 10px;
+      border-radius: 10px;
+      background-color: #C2EDBC;
+      padding: 30px 5px;
+    }
+  }
+
+  .middle{
+    padding-top: 10px;
+
+    h1{
+      font-size: 25px;
+      color: #636161;
+    }
+
+    .tags{
+      margin-top: 10px;
+
+      button{
+        color: #fff;
+        background-color: $buttonColor;
+        border-radius: 5px;
+        border: none;
+        margin-right: 5px;
+        padding: 5px 10px;
+    
+          &:hover{
+            cursor:pointer;
+            background-color: #4169E1;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
