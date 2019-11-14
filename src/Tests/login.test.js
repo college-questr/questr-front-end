@@ -31,7 +31,6 @@ test("check login rendered texts", () => {
     const {getByText}  = render(<Login />);
     expect(getByText(/Email/i).innerHTML).toBe(" Email ");
     expect(getByText(/Password/i).innerHTML).toBe(" Password ");
-    expect(getByText(/Login/i).innerHTML).toBe("Login");
 })
 
 
