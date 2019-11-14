@@ -5,6 +5,7 @@ const labelColor = "rgba(0, 0, 0, 0.61)";
 const mainFont = "Roboto"
 const loginButtonText = "#FFFFFF";
 const footerTextColor = "#FFFFFF";
+const mainBgColor = '#F7FAFC;'
 export {
     buttonColor,
     bgColor,
@@ -12,5 +13,6 @@ export {
     labelColor,
     mainFont,
     loginButtonText,
-    footerTextColor
+    footerTextColor,
+    mainBgColor
 };

@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import LoginRoute from './Route/loginRoute';
 import SignupRoute from './Route/signupRoute';
 import QuestionFormRoute from './Route/questionFormRoute';
+import SearchBar from './Components/search'
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route exact path='/login' component={LoginRoute} />
       <Route exact path='/signup' component={SignupRoute} />
       <Route exact path='/add-question' component={QuestionFormRoute} />
+      <SearchBar />
     </div>
   );
 }
