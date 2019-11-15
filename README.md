@@ -1,6 +1,6 @@
 # qeustr-front-end
 
-  This project is about creating an app that can guide college student by giving them resources specifc to their school instructors and classes
+  Questr, an Open Source platform giving student a place they can ask questions related to their classes and professors. Which allow them to build communities that's good enough to support themselves and other individuals who don't have tutors or friends to study with.
 
 # Rules for contributing 
 
