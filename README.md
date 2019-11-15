@@ -62,6 +62,8 @@ npm test
   
   -/add-question
 
+  -/dashboard
+
 
 ## Deployment
 
@@ -70,7 +72,6 @@ not deployed yet
 ## Built With
 
   - React/Redux
-  - Node.js
   - Styled components
   - SASS
   - React hooks
