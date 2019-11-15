@@ -6,7 +6,6 @@ import SignupRoute from './Route/signupRoute';
 import QuestionFormRoute from './Route/questionFormRoute';
 import DashboardRoute from './Route/dashboardRoute';
 
-
 function App() {
   return (
     <div className="App">
