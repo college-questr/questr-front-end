@@ -44,7 +44,7 @@ const QuestionView = ({ questionDetails }) => {
                                 </Vote>
                                 <QuestionBody>
                                     {el.answer}
-                                    <Stamp>Answered by {el.answeredBy}</Stamp>
+                        <Stamp>Answered by {el.answeredBy} <br/> {el.createdAt}</Stamp>
                                 </QuestionBody>
                             </SingleAnswer>
                         )

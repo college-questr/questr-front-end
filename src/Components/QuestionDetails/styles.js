@@ -1,7 +1,7 @@
 import Style from 'styled-components';
 
 export const DetailsContainer = Style.div `
-    width: 823px;
+    max-width: 823px;
     display:flex;
     flex-flow: column nowrap;
     justify-content:space-between;
@@ -69,12 +69,18 @@ export const Tag = Style.button `
     height: 28px;
     color:white;
     margin-right:20px;
-    margin:40px 20px 40px 0px;
+    margin:40px 20px 10px 0px;
+    transition:1s
+
+    &:hover{
+        border: 3px solid #93B2E0;
+        cursor:pointer;
+    }
 `
 
 export const Stamp = Style.div `
     text-align: right;
-
+    margin:20px 0 0 0;
 `
 
 export const AnswerContainer = Style.div `
@@ -86,6 +92,8 @@ export const AnswerContainer = Style.div `
 export const SingleAnswer = Style.div `
     display: flex;
     flew-flow: row wrap;
+    border-bottom: 1px solid #D3D0D0;
+
  `
 
 export const AnswerHeader = Style.h1 `
