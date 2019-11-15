@@ -64,6 +64,8 @@ npm test
 
   -/dashboard
 
+  -/question/:id
+
 
 ## Deployment
 
