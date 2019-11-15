@@ -22,7 +22,7 @@ const QuestionView = ({ questionDetails }) => {
     return (
         <DetailsContainer >
             <QuestionTitle>
-            {questionDetails.questionHeader}
+                {questionDetails.questionHeader}
             </QuestionTitle>
             <QuestionContainer>
                 <Vote>
