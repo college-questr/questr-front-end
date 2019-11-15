@@ -15,12 +15,15 @@ import Answers from './answers'
 import Style from 'styled-components';
 import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
+import Star from '../../Img/Star.png'
 
 const QuestionView = ({ questionDetails }) => {
 
     return (
         <DetailsContainer >
-            <QuestionTitle>{questionDetails.questionHeader}</QuestionTitle>
+            <QuestionTitle>
+            {questionDetails.questionHeader}
+            </QuestionTitle>
             <QuestionContainer>
                 <Vote>
                     <Arrow src={Up} />
@@ -98,3 +101,4 @@ const QuestionTitle = Style.h1`
     padding-bottom:15px;
     border-bottom: 1px solid #D3D0D0;
 `
+
