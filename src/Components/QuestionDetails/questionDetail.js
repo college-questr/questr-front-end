@@ -13,23 +13,33 @@ import {
     Tag,
     AnswerContainer,
     SingleAnswer,
-    AnswerHeader
+    AnswerHeader,
+    Arrow
 } from './styles'
+import Down from '../../Img/downArr.png';
+import Up from '../../Img/upArrow.png';
 
 const QuestionView = ({ questionDetails }) => {
+
     return (
         <DetailsContainer >
             <QuestionTitle>{questionDetails.questionHeader}</QuestionTitle>
             <QuestionContainer>
                 <Vote>
+                    <Arrow src={Up} />
                     {questionDetails.votes}
+                    <Arrow src={Down} />
                 </Vote>
                 <QuestionBody>
                     {questionDetails.questionBody}
                     <Tags>
                         {questionDetails.tags.map(el => <Tag>{el}</Tag>)}
                     </Tags>
-                    <Stamp> Question by {questionDetails.user} <br /> {questionDetails.createdAt}</Stamp>
+                    <Stamp>
+                        Question by {questionDetails.user}
+                        <br />
+                        {questionDetails.createdAt}
+                    </Stamp>
                 </QuestionBody>
             </QuestionContainer>
 
@@ -40,11 +50,17 @@ const QuestionView = ({ questionDetails }) => {
                         return (
                             <SingleAnswer>
                                 <Vote>
+                                    <Arrow src={Up} />
                                     {el.votes}
+                                    <Arrow src={Down} />
                                 </Vote>
                                 <QuestionBody>
                                     {el.answer}
-                        <Stamp>Answered by {el.answeredBy} <br/> {el.createdAt}</Stamp>
+                                    <Stamp>
+                                        Answered by {el.answeredBy}
+                                        <br />
+                                        {el.createdAt}
+                                    </Stamp>
                                 </QuestionBody>
                             </SingleAnswer>
                         )

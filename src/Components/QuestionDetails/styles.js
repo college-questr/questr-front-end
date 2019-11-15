@@ -14,6 +14,9 @@ export const QuestionContainer = Style.div `
  `
 
 export const Vote = Style.div `
+    display:flex;
+    flex-flow: column wrap;
+    justify-content:center;
     width: 29px;
     height: 121px;
     margin:30px 0px 0px 10px;
@@ -104,4 +107,13 @@ export const AnswerHeader = Style.h1 `
     line-height: 42px;
     border-bottom: 1px solid #D3D0D0;
     color: rgba(0, 0, 0, 0.54);
+`
+
+export const Arrow = Style.img `
+
+transition:500ms;
+    &:hover{
+        cursor:pointer;
+        margin:10px 0;
+    }
 `
