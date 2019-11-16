@@ -6,6 +6,7 @@ export const questionDetailObj = {
     user: 'dummy user',
     createdAt: 'date',
     tags: ['tag1', 'tag2'],
+    followers: 9,
 
     answers: [{
             answer_id: 1,
