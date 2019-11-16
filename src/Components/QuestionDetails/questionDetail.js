@@ -4,33 +4,33 @@ import React, {
 } from 'react';
 import {
     DetailsContainer,
-    QuestionTitle,
-    QuestionBody,
-    QuestionContainer,
+    MessageBody,
     Stamp,
     Vote,
     Tags,
     Tag,
-    AnswerContainer,
-    SingleAnswer,
-    AnswerHeader,
     Arrow
-} from './styles'
+} from './sharedStyles'
+import Answers from './answers'
+import Style from 'styled-components';
 import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
+import Star from '../../Img/Star.png'
 
 const QuestionView = ({ questionDetails }) => {
 
     return (
         <DetailsContainer >
-            <QuestionTitle>{questionDetails.questionHeader}</QuestionTitle>
+            <QuestionTitle>
+                {questionDetails.questionHeader}
+            </QuestionTitle>
             <QuestionContainer>
                 <Vote>
                     <Arrow src={Up} />
                     {questionDetails.votes}
                     <Arrow src={Down} />
                 </Vote>
-                <QuestionBody>
+                <MessageBody>
                     {questionDetails.questionBody}
                     <Tags>
                         {questionDetails.tags.map(el => <Tag>{el}</Tag>)}
@@ -40,33 +40,11 @@ const QuestionView = ({ questionDetails }) => {
                         <br />
                         {questionDetails.createdAt}
                     </Stamp>
-                </QuestionBody>
+                </MessageBody>
             </QuestionContainer>
 
             <DetailsContainer>
-                <AnswerHeader>{questionDetails.answers.length} Answers</AnswerHeader>
-                <AnswerContainer>
-                    {questionDetails.answers.map(el => {
-                        return (
-                            <SingleAnswer>
-                                <Vote>
-                                    <Arrow src={Up} />
-                                    {el.votes}
-                                    <Arrow src={Down} />
-                                </Vote>
-                                <QuestionBody>
-                                    {el.answer}
-                                    <Stamp>
-                                        Answered by {el.answeredBy}
-                                        <br />
-                                        {el.createdAt}
-                                    </Stamp>
-                                </QuestionBody>
-                            </SingleAnswer>
-                        )
-                    })}
-
-                </AnswerContainer>
+                <Answers answers={questionDetails.answers} />
             </DetailsContainer>
         </DetailsContainer>
     )
@@ -105,3 +83,22 @@ export default QuestionView;
      ]
  }
  */
+
+
+const QuestionContainer = Style.div`
+    display:flex;
+    flex-flow:row nowrap;
+ `
+
+const QuestionTitle = Style.h1`
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    margin-top:15px;
+    color: rgba(0, 0, 0, 0.54);
+    padding-bottom:15px;
+    border-bottom: 1px solid #D3D0D0;
+`
+

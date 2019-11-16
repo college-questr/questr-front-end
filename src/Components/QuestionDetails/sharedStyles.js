@@ -8,11 +8,6 @@ export const DetailsContainer = Style.div `
     margin-left:20px;
  `
 
-export const QuestionContainer = Style.div `
-    display:flex;
-    flex-flow:row nowrap;
- `
-
 export const Vote = Style.div `
     display:flex;
     flex-flow: column wrap;
@@ -33,7 +28,7 @@ export const Vote = Style.div `
 
 `
 
-export const QuestionBody = Style.div `
+export const MessageBody = Style.div `
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -47,17 +42,6 @@ export const QuestionBody = Style.div `
 
 `
 
-export const QuestionTitle = Style.h1 `
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 56px;
-    margin-top:15px;
-    color: rgba(0, 0, 0, 0.54);
-    padding-bottom:15px;
-    border-bottom: 1px solid #D3D0D0;
-`
 
 export const Tags = Style.div `
     display:flex;
@@ -86,28 +70,6 @@ export const Stamp = Style.div `
     margin:20px 0 0 0;
 `
 
-export const AnswerContainer = Style.div `
-    display:flex;
-    flex-flow:row wrap;
-
- `
-
-export const SingleAnswer = Style.div `
-    display: flex;
-    flew-flow: row wrap;
-    border-bottom: 1px solid #D3D0D0;
-
- `
-
-export const AnswerHeader = Style.h1 `
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-    border-bottom: 1px solid #D3D0D0;
-    color: rgba(0, 0, 0, 0.54);
-`
 
 export const Arrow = Style.img `
 
