@@ -16,7 +16,9 @@
 
 ## Getting Started
 
-clone the repo
+fork the repo
+
+then clone
 
 ```
 git clone https://github.com/college-questr/questr-front-end.git
