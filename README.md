@@ -13,6 +13,10 @@
 ## keep in mind
 
   -we dont have a backend yet so anything that invloves and api call just leave it blank
+  
+## Design 
+
+  https://www.figma.com/file/bWpM9FdMZwdeuAEgIrkRBu/answers?node-id=33%3A1
 
 ## Getting Started
 
