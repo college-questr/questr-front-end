@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styled-components';
+import Style from 'styled-components';
 
 const RelatedQuestion = (props) => {
     return (

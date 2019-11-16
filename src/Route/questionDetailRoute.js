@@ -2,6 +2,7 @@ import React from 'react'
 import QuestionDetail from '../Components/QuestionDetails/questionDetail';
 import Editor from '../Components/editor';
 import Subscribe from '../Components/subscribe';
+import RelatedQuestions from '../Components/QuestionDetails/relatedQuestions';
 
 import {
   questionDetailObj
@@ -23,7 +24,10 @@ const QuestionDetailPage = (props) => {
         </div>
         <div className="right-detail">
           <Subscribe followers={questionDetailObj.followers} />
-
+          <div className="related-questions">
+            <h1>Related Questions</h1>
+              
+          </div>
         </div>
       </div>
     </>

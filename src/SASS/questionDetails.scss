@@ -3,7 +3,22 @@
     flex-flow: row wrap;
     justify-content: space-around;
     .right-detail {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
         margin: 80px 0 0 0;
+        .related-questions {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 14px;
+            color: rgba(0, 0, 0, 0.54);
+            border-bottom: 1px solid black;
+            h1 {
+                font-size: 36px;
+                line-height: 42px;
+            }
+        }
     }
     .left-detail {
         .header-container {
