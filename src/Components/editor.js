@@ -39,6 +39,7 @@ class Editor extends React.Component {
     submit = (e) => {
       e.preventDefault();
       //send parsed state text to api
+      console.log('submit');
     }
 
 
@@ -52,8 +53,8 @@ class Editor extends React.Component {
         >
         </ReactQuill>
 
-        <PostSubmitBtn>
-          Follow
+        <PostSubmitBtn onClick={this.submit}>
+          Submit
         </PostSubmitBtn>
       </div>
     );
