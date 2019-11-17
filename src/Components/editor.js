@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import Style from 'styled-components';
 
 class Editor extends React.Component {
   constructor(props) {
@@ -27,16 +28,53 @@ class Editor extends React.Component {
     'link', 'image'
   ];
 
+   handleChange = (value) => {
+      this.setState({
+        text: value
+      })
+
+      console.log(this.state.text)
+    }
+
+    submit = (e) => {
+      e.preventDefault();
+      //send parsed state text to api
+      console.log('submit');
+    }
+
+
   render() {
     return (
       <div className="text-editor">
         <ReactQuill theme="snow"
           modules={this.modules}
-          formats={this.formats}>
+          formats={this.formats}
+          onChange={this.handleChange}
+        >
         </ReactQuill>
+
+        <PostSubmitBtn onClick={this.submit}>
+          Submit
+        </PostSubmitBtn>
       </div>
     );
   }
 }
 
 export default Editor;
+
+const PostSubmitBtn = Style.button`
+  width: 311px;
+  height: 37px;
+  background: #93B2E0;
+  border-radius: 3px;
+  color:white;
+  transition:500ms;
+  text-decoration:none
+
+  &:hover{
+      border: 5px solid #93B2E0;
+      cursor:pointer;
+
+  }
+`
