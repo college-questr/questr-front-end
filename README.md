@@ -62,15 +62,15 @@ npm test
 
 ## React Routes
 
-  -/login
+    -http://localhost:<port>/login
   
-  -/signup
+    -http://localhost:<port>/signup
   
-  -/add-question
+    -http://localhost:<port>/add-question
 
-  -/dashboard
+    -http://localhost:<port>/dashboard
 
-  -/question/:id
+    -http://localhost:<port>/question/:id
 
 
 ## Deployment
