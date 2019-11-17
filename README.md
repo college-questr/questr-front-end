@@ -22,10 +22,10 @@
 
 fork the repo
 
-then clone
+then clone the forked repor
 
 ```
-git clone https://github.com/college-questr/questr-front-end.git
+git clone https://github.com/<your_github_account>/questr-front-end.git
 ```
 
 checkout a branch 
@@ -44,7 +44,7 @@ then you can start working! :)
 
 ## Submitting a pull request 
 
-once you are done working on you issue create a pull request to master from your branch and add @kiamco or @docoleman36 as a reviewer
+once you are done working on you issue create a pull request to master from your forked repo and add @kiamco or @docoleman36 as a reviewer
 
 ## Running the tests
 
