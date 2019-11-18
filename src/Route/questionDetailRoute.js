@@ -3,12 +3,19 @@ import QuestionDetail from '../Components/QuestionDetails/questionDetail';
 import Editor from '../Components/editor';
 import Subscribe from '../Components/subscribe';
 import RelatedQuestions from '../Components/QuestionDetails/relatedQuestions';
+import { useQuery } from '@apollo/react-hooks';
+import {GET_QUESTION_BY_ID} from '../graphQL/queries'
 
 import {
   questionDetailObj
 } from '../Components/testComponentData'
 
+
 const QuestionDetailPage = (props) => {
+
+  const { loading, error, data } = useQuery(GET_QUESTION_BY_ID("5dd1df42f19c8a660ecb966d"));
+
+  console.log(data);
   return (
     <>
       <div className='question-detail-contianer'>
