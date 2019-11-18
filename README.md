@@ -117,6 +117,7 @@ not deployed yet
   - SASS
   - React hooks
   - Apollo
+  - graphql
 
 ## Versioning
 
