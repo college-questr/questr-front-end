@@ -72,6 +72,39 @@ npm test
 
     -http://localhost:<port>/question/:id
 
+## QraphQL queries and mutations
+
+  - there is a directory called graphQl that contians all the http calls to the data base
+  
+###### Sample
+
+- customize queries are made in the **queries.js** file
+
+      import { gql } from 'apollo-boost';
+
+      export const GET_QUESTION_BY_ID = (id) => gql`
+          {
+              question(id: "${id}") {
+                  questionTitle
+                  questionBody
+              }
+          }
+      `
+
+      export const GET_ALL_QUESTIONS = gql`
+      {
+          questions{
+               questionTitle
+              questionBody
+          }
+
+      }
+      `
+
+- this is how you use it in any component that need to an api call
+
+      import {GET_QUESTION_BY_ID} from '../graphQL/queries'
+      const { loading, error, data } = useQuery(GET_QUESTION_BY_ID("5dd1df42f19c8a660ecb966d"));
 
 ## Deployment
 
@@ -83,6 +116,7 @@ not deployed yet
   - Styled components
   - SASS
   - React hooks
+  - Apollo
 
 ## Versioning
 
