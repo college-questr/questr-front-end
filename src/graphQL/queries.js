@@ -36,7 +36,7 @@ export const GET_QUESTION_BY_ID = (id) => gql`
     }
 `
 
-export const GET_QUESTION_BY_ID_WITH_ANSWERS = (id) => gql`
+export const GET_QUESTION_BY_ID_AND_TAGS = (id) => gql`
     {
         question(id: "${id}") {
             questionTitle
@@ -58,6 +58,5 @@ export const GET_ALL_QUESTIONS = gql`
  		questionTitle
         questionBody
     }
-  
 }
 `
