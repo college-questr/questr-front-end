@@ -4,15 +4,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Style from 'styled-components';
 import {useMutation} from '@apollo/react-hooks';
-// import {POST_QUESTION} from '../graphQL/mutations'
-import axios from 'axios';
+import {POST_QUESTION} from '../graphQL/mutations'
+
 
 const QuestionForm = () => {
 
   const [question, setQuestion] = useState("")
   const [editorText, setEditorText] = useState("")
   const [post, setPost] = useState({question:"",editorText:""})
-  // const [POST_QUESTION,{ data }] = useMutation(POST_QUESTION);
+  const [postQuestion,{ data, error }] = useMutation(POST_QUESTION);
 
   const modules = {
     toolbar: [
@@ -52,21 +52,10 @@ const QuestionForm = () => {
   const submitHandler = (e) => {
     //some api call
     e.preventDefault();
-    // POST_QUESTION({ variables: { questionTitle: post.question, questionBody:post.editorText } })
-    axios
-      .post('https://questr-backend.herokuapp.com/graphql', {
-        query: `mutation 
-        {
-          addQuestion( questionTitle:"${post.question}", questionBody:"${post.editorText}") 
-          {
-            questionTitle
-            questionBody
-          }
-        }
-  `})
-  .then(res => console.log(res)).catch(err => console.error(err));
+    postQuestion({ variables: { questionTitle: post.question, questionBody:post.editorText, votes:0 } })
   }
 
+  console.log(data)
  
   return (
     <div className="question-container">
@@ -161,4 +150,4 @@ const PostSubmitBtn = Style.button`
   }
 `
 
-export default QuestionForm;
+export default (QuestionForm);

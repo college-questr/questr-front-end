@@ -2,9 +2,9 @@ import gql from 'graphql-tag';
 
 
 
-export const POST_QUESTION = gql`{
-        mutation addQuestion($questionTitle: String!, questionBody: String!) {
-            addQuestion(questionTitle: $questionTitle, questionBody: $questionBody){
+export const POST_QUESTION = gql`
+        mutation($questionTitle:String!,$questionBody: String!, $votes:Int!){
+            addQuestion(questionTitle: $questionTitle, questionBody: $questionBody, votes: $votes) {
                 questionTitle
                 questionBody
                 votes
@@ -12,5 +12,5 @@ export const POST_QUESTION = gql`{
                 createdAt
             }
         }
-    }
+    
 `
