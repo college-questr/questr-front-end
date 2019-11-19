@@ -3,22 +3,22 @@ import { buttonColor, mainFont, loginButtonText } from './Styles/variables';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Style from 'styled-components';
-import {useMutation} from '@apollo/react-hooks';
-import {POST_QUESTION} from '../graphQL/mutations'
+import { useMutation } from '@apollo/react-hooks';
+import { POST_QUESTION } from '../graphQL/mutations'
 
 
 const QuestionForm = () => {
 
   const [question, setQuestion] = useState("")
   const [editorText, setEditorText] = useState("")
-  const [post, setPost] = useState({question:"",editorText:""})
-  const [postQuestion,{ data, error }] = useMutation(POST_QUESTION);
+  const [post, setPost] = useState({ question: "", editorText: "" })
+  const [postQuestion, { data, error }] = useMutation(POST_QUESTION);
 
   const modules = {
     toolbar: [
-      [{ 'header': [1, 2, false] }],
+      // [{ 'header': [1, 2, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
       ['link', 'image'],
       ['clean']
     ],
@@ -26,9 +26,8 @@ const QuestionForm = () => {
 
 
   const formats = [
-    'header',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
+    'list', 'bullet',
     'link', 'image'
   ];
 
@@ -38,25 +37,25 @@ const QuestionForm = () => {
 
 
   const onChangeHandler = event => {
-    setQuestion( event.target.value);
+    setQuestion(event.target.value);
   }
 
-  const combineField = () =>{
-    setPost({...post,question,editorText})
+  const combineField = () => {
+    setPost({ ...post, question, editorText })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     combineField();
-  },[editorText,question])
+  }, [editorText, question])
 
   const submitHandler = (e) => {
     //some api call
     e.preventDefault();
-    postQuestion({ variables: { questionTitle: post.question, questionBody:post.editorText, votes:0 } })
+    postQuestion({ variables: { questionTitle: post.question, questionBody: post.editorText, votes: 0 } })
   }
 
   console.log(data)
- 
+
   return (
     <div className="question-container">
       <div className="main-content">
@@ -93,9 +92,9 @@ const QuestionForm = () => {
           <li>The title should be in the form of a question</li>
           <li>Provide sufficient details</li>
           <li>Be clear and concise</li>
-          <li>Once your question is posted, it is public. 
-            Third parties may maintain public or private archives of the content on this site. 
-            With this in mind, be sure to remove private data, security content, 
+          <li>Once your question is posted, it is public.
+            Third parties may maintain public or private archives of the content on this site.
+            With this in mind, be sure to remove private data, security content,
             or any other sensitive information from your question before posting it.</li>
         </ul>
 
