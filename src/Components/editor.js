@@ -32,8 +32,8 @@ class Editor extends React.Component {
       this.setState({
         text: value
       })
-
-      console.log(this.state.text)
+      this.props.changeHandler(value);
+      console.log(this.state)
     }
 
     submit = (e) => {
@@ -45,18 +45,17 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <div className="text-editor">
+      <>
         <ReactQuill theme="snow"
           modules={this.modules}
           formats={this.formats}
           onChange={this.handleChange}
         >
         </ReactQuill>
-
         <PostSubmitBtn onClick={this.submit}>
           Submit
         </PostSubmitBtn>
-      </div>
+        </>
     );
   }
 }
