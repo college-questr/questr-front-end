@@ -3,10 +3,12 @@ import { buttonColor, mainFont, loginButtonText } from '../Styles/variables';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Style from 'styled-components';
-import { useMutation } from '@apollo/react-hooks';
-import { POST_QUESTION } from '../../graphQL/mutations'
-import { Dropdown, Input } from 'semantic-ui-react'
-import {modules, formats} from './editorConfig'
+import { useMutation,useQuery } from '@apollo/react-hooks';
+import { POST_QUESTION } from '../../graphQL/mutations';
+import {GET_TAGS} from '../../graphQL/queries';
+import { Dropdown, Input } from 'semantic-ui-react';
+import {modules, formats} from './editorConfig';
+import {classOption} from './options';
 
 
 const QuestionForm = () => {
@@ -15,6 +17,7 @@ const QuestionForm = () => {
   const [editorText, setEditorText] = useState("")
   const [post, setPost] = useState({ question: "", editorText: "" })
   const [postQuestion, { data, error }] = useMutation(POST_QUESTION);
+  const tagsData = useQuery(GET_TAGS);
   
   const [misc,setMisc] = useState({
     class:"",
@@ -23,6 +26,9 @@ const QuestionForm = () => {
   })
 
 
+  const onChangeMisc = (e) => {
+    setMisc({...misc,[e.target.name]:e.target.value})
+  }
 
   const editorHandleChange = (value) => {
     setEditorText(value)
@@ -34,12 +40,13 @@ const QuestionForm = () => {
   }
 
   const combineField = () => {
-    setPost({ ...post, question, editorText })
+    setPost({ ...post, question, editorText, tagging:{...misc}})
   }
 
   useEffect(() => {
     combineField();
-  }, [editorText, question])
+    
+  }, [editorText, question, tagsData.loading,misc])
 
   const submitHandler = (e) => {
     //some api call
@@ -47,8 +54,19 @@ const QuestionForm = () => {
     postQuestion({ variables: { questionTitle: post.question, questionBody: post.editorText, votes: 0 } })
   }
 
-  console.log(data)
+  const getMultiSelectOpt = () =>{
+    let tagOption = []
+    if (!tagsData.loading) {
+       tagOption = tagsData.data.tags.map(el => {
+        return {
+          key: el.__typename, text: el.tag, value: el.tag
+        }
+      })
+    }
+    return tagOption
+  }
 
+  console.log(post)
   return (
     <div className="question-container">
       <div className="main-content">
@@ -60,6 +78,9 @@ const QuestionForm = () => {
             fluid
             search
             selection
+            onChange={(e) => setMisc({...misc,class:e.target.textContent})}
+            options={classOption}
+
           />
           </div>
           <label htmlFor="question-title" />
@@ -88,8 +109,14 @@ const QuestionForm = () => {
                 search
                 selection
                 clearable
+                options={getMultiSelectOpt()}
+                onChange={(e) => setMisc({ ...misc, tags:[...misc.tags,e.target.textContent]})}
+
               />
-              <Input placeholder='Instructor' />
+              <Input 
+              placeholder='Instructor (optional)'
+              onChange={(e) => setMisc({ ...misc, instructor: e.target.value })}
+              />
             </div>
             <div className='right'></div>
             
