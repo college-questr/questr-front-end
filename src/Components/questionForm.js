@@ -3,22 +3,23 @@ import { buttonColor, mainFont, loginButtonText } from './Styles/variables';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Style from 'styled-components';
-import {useMutation} from '@apollo/react-hooks';
-import {POST_QUESTION} from '../graphQL/mutations'
+import { useMutation } from '@apollo/react-hooks';
+import { POST_QUESTION } from '../graphQL/mutations'
+import MainNav from './Nav/mainNav';
 
 
 const QuestionForm = () => {
 
   const [question, setQuestion] = useState("")
   const [editorText, setEditorText] = useState("")
-  const [post, setPost] = useState({question:"",editorText:""})
-  const [postQuestion,{ data, error }] = useMutation(POST_QUESTION);
+  const [post, setPost] = useState({ question: "", editorText: "" })
+  const [postQuestion, { data, error }] = useMutation(POST_QUESTION);
 
   const modules = {
     toolbar: [
-      [{ 'header': [1, 2, false] }],
+      // [{ 'header': [1, 2, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
       ['link', 'image'],
       ['clean']
     ],
@@ -26,9 +27,8 @@ const QuestionForm = () => {
 
 
   const formats = [
-    'header',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
+    'list', 'bullet',
     'link', 'image'
   ];
 
@@ -38,73 +38,76 @@ const QuestionForm = () => {
 
 
   const onChangeHandler = event => {
-    setQuestion( event.target.value);
+    setQuestion(event.target.value);
   }
 
-  const combineField = () =>{
-    setPost({...post,question,editorText})
+  const combineField = () => {
+    setPost({ ...post, question, editorText })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     combineField();
-  },[editorText,question])
+  }, [editorText, question])
 
   const submitHandler = (e) => {
     //some api call
     e.preventDefault();
-    postQuestion({ variables: { questionTitle: post.question, questionBody:post.editorText, votes:0 } })
+    postQuestion({ variables: { questionTitle: post.question, questionBody: post.editorText, votes: 0 } })
   }
 
   console.log(data)
- 
+
   return (
-    <div className="question-container">
-      <div className="main-content">
-        <h1 className="h1-form">Ask a question and join the community</h1>
-        <form className="question-form" onSubmit={submitHandler}>
+    <div>
+      <MainNav />
+      <div className="question-container">
+        <div className="main-content">
+          <h1 className="h1-form">Ask a question and join the community</h1>
+          <form className="question-form" onSubmit={submitHandler}>
 
-          <label htmlFor="question-title">Question Title</label>
-          <input
-            type="text"
-            name="question-title"
-            className="question-input"
-            onChange={onChangeHandler}
-          />
+            <label htmlFor="question-title">Question Title</label>
+            <input
+              type="text"
+              name="question-title"
+              className="question-input"
+              onChange={onChangeHandler}
+            />
 
-          {/* <Editor changeHandler={SetTextEditorContent}/> */}
-          <ReactQuill theme="snow"
-            modules={modules}
-            formats={formats}
-            onChange={editorHandleChange}
-          >
-          </ReactQuill>
-          <PostSubmitBtn>
-            Submit
+            {/* <Editor changeHandler={SetTextEditorContent}/> */}
+            <ReactQuill theme="snow"
+              modules={modules}
+              formats={formats}
+              onChange={editorHandleChange}
+            >
+            </ReactQuill>
+            <PostSubmitBtn>
+              Submit
         </PostSubmitBtn>
 
-        </form>
-      </div>
+          </form>
+        </div>
 
-      <div className="side-content">
-        <h1>How to ask</h1>
-        <h2>Ask questions about your homework</h2>
+        <div className="side-content">
+          <h1>How to ask</h1>
+          <h2>Ask questions about your homework</h2>
 
-        <ul>
-          <li>The title should be in the form of a question</li>
-          <li>Provide sufficient details</li>
-          <li>Be clear and concise</li>
-          <li>Once your question is posted, it is public. 
-            Third parties may maintain public or private archives of the content on this site. 
-            With this in mind, be sure to remove private data, security content, 
+          <ul>
+            <li>The title should be in the form of a question</li>
+            <li>Provide sufficient details</li>
+            <li>Be clear and concise</li>
+            <li>Once your question is posted, it is public.
+              Third parties may maintain public or private archives of the content on this site.
+              With this in mind, be sure to remove private data, security content,
             or any other sensitive information from your question before posting it.</li>
-        </ul>
+          </ul>
 
-        <div className="tag-container">
-          <h3>Tags</h3>
-          <div className="tags">
-            <button>Tag</button>
-            <button>Tag</button>
-            <button>Tag</button>
+          <div className="tag-container">
+            <h3>Tags</h3>
+            <div className="tags">
+              <button>Tag</button>
+              <button>Tag</button>
+              <button>Tag</button>
+            </div>
           </div>
         </div>
       </div>

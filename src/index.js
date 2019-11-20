@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducer from './ReduxStore/Reducers';
 import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
+// Remove Apollo hooks for test
+// - Add back for deployment 
 import { ApolloProvider } from '@apollo/react-hooks';
 
 

@@ -1,0 +1,32 @@
+.search-container{
+
+  form{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width:400px;
+    max-width:800px;
+
+    .search{
+      color: gray;
+      position: absolute;
+      margin-top: 7px;
+      margin-left: 10px;
+    }
+
+    input{
+      background: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+      width: 450px;
+      height: 40px;
+      margin-top: 15px;
+      padding-left: 35px;
+
+      &:focus{
+        border: 2px solid $labelColor;
+      }
+    }
+  }
+
+}
