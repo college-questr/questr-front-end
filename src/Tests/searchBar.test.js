@@ -22,5 +22,5 @@ test("check change handlers of search if it accepts input", () => {
     }
   });
 
-    expect(getByPlaceholderText("Question").value).toBe("get dat money");
+    expect(getByPlaceholderText("Search Questr").value).toBe("get dat money");
 })
