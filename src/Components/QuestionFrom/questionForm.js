@@ -94,7 +94,7 @@ const QuestionForm = () => {
   const validateQuestion = () => data !== undefined;
 
   return (
-    <div className="question-container">
+    <div className="question-form-container">
       <div className="main-content">
         <h1 className="h1-form">Ask a question and join the community</h1>
         <form className="question-form" onSubmit={submitHandler}>
