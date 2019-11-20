@@ -3,7 +3,6 @@ import Style from 'styled-components';
 import { labelColor, mainFont } from '../Styles/variables';
 import { NavLink, Link } from 'react-router-dom';
 import Search from '../search';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 const MainNav = (props) => {
 
@@ -18,15 +17,14 @@ const MainNav = (props) => {
         <NavEl>Recent Questions</NavEl>
         <NavEl>Classroom</NavEl>
 
-        <NavEl class="dropdown">
-          <Button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <NavEl className="dropdown">
+          <Button className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account
-            <KeyboardArrowDownIcon>Circle</KeyboardArrowDownIcon>
           </Button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <Link class="dropdown-item" href="#">Profile</Link>
-            <Link class="dropdown-item" href="#">Settings</Link>
-            <Link class="dropdown-item" href="#">Logout</Link>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <Link className="dropdown-item" to="#">Profile</Link>
+            <Link className="dropdown-item" to="#">Settings</Link>
+            <Link className="dropdown-item" to="#">Logout</Link>
           </div>
         </NavEl>
 

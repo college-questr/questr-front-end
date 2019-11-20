@@ -11,9 +11,6 @@ const Dashboard = () => {
       <MainNav />
       <div className="dashboard-container">
         <div className="dashboard-top">
-          {/* Filler Questions */}
-          <QuestionItem />
-          <QuestionItem />
           <QuestionItem />
         </div>
         <div className="dashboard-side">

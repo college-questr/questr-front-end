@@ -60,3 +60,22 @@ export const GET_ALL_QUESTIONS = gql`
     }
 }
 `
+
+export const getQuestionItemQuery = gql`
+  {
+    questions {
+      id  
+      questionTitle
+      answer{
+        id
+        answer
+      }
+      votes
+      tag{
+        question_id
+        tag
+      }
+      createdAt
+    }
+  }
+`
