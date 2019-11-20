@@ -11,6 +11,8 @@ import ApolloClient from 'apollo-boost';
 // Remove Apollo hooks for test
 // - Add back for deployment 
 import { ApolloProvider } from '@apollo/react-hooks';
+import 'semantic-ui-css/semantic.min.css'
+
 
 
 const client = new ApolloClient({
@@ -25,14 +27,16 @@ const store = createStore(
     composeEnhancers(applyMiddleware(thunk))
 );
 
-ReactDOM.render(
-    <ApolloProvider client={client}>
-        <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Provider>
-    </ApolloProvider>,
+ReactDOM.render( <
+    ApolloProvider client = { client } >
+    <
+    Provider store = { store } >
+    <
+    BrowserRouter >
+    <
+    App / >
+    <
+    /BrowserRouter> <
+    /Provider> <
+    /ApolloProvider>,
     document.getElementById('root'));
-
-
