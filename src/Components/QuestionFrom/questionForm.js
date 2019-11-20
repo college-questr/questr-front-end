@@ -42,7 +42,7 @@ const QuestionForm = () => {
   }
 
   const combineField = () => {
-    setPost({ ...post, question, editorText, tagging: { ...misc } })
+    setPost({ ...post, question, editorText })
   }
 
   useEffect(() => {
@@ -57,6 +57,9 @@ const QuestionForm = () => {
 
   }, [editorText, question, tagsData.loading, misc, loading, data])
 
+  /**
+   * sends a post request to graphql
+   */
   const submitHandler = (e) => {
     e.preventDefault();
     postQuestion(
@@ -69,8 +72,9 @@ const QuestionForm = () => {
 
   }
 
-
-
+  /**
+   * this get all the tag options and adds it to the drop down
+   */
   const getMultiSelectOpt = () => {
     let tagOption = [];
     let count = 0;
@@ -84,6 +88,9 @@ const QuestionForm = () => {
     return tagOption
   }
 
+  /**
+   * validates when question successfuly posted
+   */
   const validateQuestion = () => data !== undefined;
 
   return (
