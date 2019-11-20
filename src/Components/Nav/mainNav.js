@@ -10,7 +10,7 @@ const MainNav = (props) => {
   return (
     <NavContainer>
       <LeftSection>
-        <Logo>Questr</Logo>
+        <NavLink className="links" to="/dashboard">Questr</NavLink>
       </LeftSection>
       <Search />
       <RightSection>
@@ -57,9 +57,9 @@ const RightSection = Style.div`
     width:400px;
 `
 
-const Logo = Style.h1`
-  color: #fff;
-`
+// const NavLink = Style.a`
+//   color: #fff;
+// `
 
 const NavEl = Style.div`
     margin: 25px 0 25px 0;
@@ -81,7 +81,7 @@ const NavEl = Style.div`
 const Button = Style.button`
   background-color: #90b1e2;
   border: none;
-  color: white;
+  color: #fff;
 
   &:focus{
     outline: none;
