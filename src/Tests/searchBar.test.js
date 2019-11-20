@@ -16,7 +16,7 @@ test("check if SearchBar component renders", () => {
 test("check change handlers of search if it accepts input", () => {
   const { getByPlaceholderText } = render(<BrowserRouter><SearchBar /></BrowserRouter>);
 
-  fireEvent.change(getByPlaceholderText(/Question/i), {
+  fireEvent.change(getByPlaceholderText("Search Questr"), {
     target: {
       value: 'get dat money'
     }
