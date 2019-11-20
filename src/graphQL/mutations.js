@@ -10,13 +10,14 @@ export const POST_QUESTION = gql`
                 votes
                 createdBy
                 createdAt
+                id
             }
         }
 `
 
-export const POST_TAGS = gql`
-        mutation($tag: String!, question_id: String!) {
-            addTag(tag: $tag, questoin_id: $quesiton_id) {
+export const POST_TAG = gql`
+        mutation($tag: String!, $question_id: String!) {
+            addTags(tag: $tag, question_id: $question_id) {
                 tag
                 question_id
             }
