@@ -10,6 +10,8 @@ import Reducer from './ReduxStore/Reducers';
 import ApolloClient from 'apollo-boost';
 import { gql } from "apollo-boost";
 import { ApolloProvider } from '@apollo/react-hooks';
+import 'semantic-ui-css/semantic.min.css'
+
 
 
 const client = new ApolloClient({
@@ -24,14 +26,16 @@ const store = createStore(
     composeEnhancers(applyMiddleware(thunk))
 );
 
-ReactDOM.render(
-    <ApolloProvider client={client}>
-        <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Provider>
-    </ApolloProvider>,
+ReactDOM.render( <
+    ApolloProvider client = { client } >
+    <
+    Provider store = { store } >
+    <
+    BrowserRouter >
+    <
+    App / >
+    <
+    /BrowserRouter> <
+    /Provider> <
+    /ApolloProvider>,
     document.getElementById('root'));
-
-

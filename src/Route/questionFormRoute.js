@@ -1,5 +1,5 @@
 import React from 'react'
-import QuestionForm from '../Components/questionForm'
+import QuestionForm from '../Components/QuestionFrom/questionForm'
 
 const QuestionFormPage = (props) => {
   return (
