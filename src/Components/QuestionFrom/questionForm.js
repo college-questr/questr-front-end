@@ -48,18 +48,24 @@ const QuestionForm = () => {
   useEffect(() => {
     combineField();
 
+    //if question is posted then attach tags
     if (validateQuestion()) {
       const tagArray = [misc.class, misc.instructor, ...misc.tags];
       tagArray.map(el => postTag({ variables: { tag: el, question_id: data.addQuestion.id } }));
     }
 
 
-  }, [editorText, question, tagsData.loading, misc, loading,data])
+  }, [editorText, question, tagsData.loading, misc, loading, data])
 
   const submitHandler = (e) => {
-    //some api call
     e.preventDefault();
-    postQuestion({ variables: { questionTitle: post.question, questionBody: post.editorText, votes: 0 } })
+    postQuestion(
+      {
+        variables: {
+          questionTitle: post.question,
+          questionBody: post.editorText
+        }
+      })
 
   }
 
@@ -79,7 +85,7 @@ const QuestionForm = () => {
   }
 
   const validateQuestion = () => data !== undefined;
-  
+
   return (
     <div className="question-container">
       <div className="main-content">
