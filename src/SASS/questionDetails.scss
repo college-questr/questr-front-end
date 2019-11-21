@@ -1,12 +1,14 @@
 .question-detail-contianer {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-around;
+    max-width: 1200px;
+    margin: 10px auto;
     .right-detail {
         display: flex;
         flex-flow: column;
         align-items: center;
-        margin: 80px 0 0 0;
+        margin: 56px 0 0 0;
         .related-questions {
             font-family: Roboto;
             font-style: normal;
@@ -21,6 +23,7 @@
         }
     }
     .left-detail {
+        width: 95%;
         .header-container {
             margin: 40px 0 20px 0;
             padding-bottom: 20px;

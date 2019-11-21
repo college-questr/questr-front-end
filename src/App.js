@@ -15,7 +15,7 @@ function App() {
       <Route exact path='/signup' component={SignupRoute} />
       <Route exact path='/add-question' component={QuestionFormRoute} />
       <Route exact path='/dashboard' component={DashboardRoute} />
-      <Route exact path='/question-detail' component={QuestionDetailPage} />
+      <Route exact path='/question-detail/:id' component={QuestionDetailPage} />
     </div>
   );
 }
