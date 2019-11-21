@@ -4,7 +4,7 @@ import Editor from '../Components/editor';
 import Subscribe from '../Components/subscribe';
 import RelatedQuestions from '../Components/QuestionDetails/relatedQuestions';
 import { useQuery } from '@apollo/react-hooks';
-import { GET_QUESTION_BY_ID } from '../graphQL/queries'
+import { GET_QUESTION_BY_ID_WITH_ANSWERS } from '../graphQL/queries'
 
 import {
   questionDetailObj
@@ -13,8 +13,7 @@ import MainNav from '../Components/Nav/mainNav';
 
 
 const QuestionDetailPage = (props) => {
-
-  const { loading, error, data } = useQuery(GET_QUESTION_BY_ID("5dd1df42f19c8a660ecb966d"));
+  const { loading, error, data } = useQuery(GET_QUESTION_BY_ID_WITH_ANSWERS(`${props.match.params.id}`));
 
   console.log(data);
   return (
@@ -22,7 +21,7 @@ const QuestionDetailPage = (props) => {
       <MainNav />
       <div className='question-detail-contianer'>
         <div className='left-detail'>
-          < QuestionDetail questionDetails={questionDetailObj} />
+          { data && < QuestionDetail questionDetails={data} />}
           <div className="header-container">
             <h1>Post Your Answer </h1>
             <p>Before you post your answer, please take a moment to go through our tips on great answers.</p>

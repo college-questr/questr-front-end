@@ -16,74 +16,46 @@ import Style from 'styled-components';
 import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
 import Star from '../../Img/Star.png'
+import ReactHtmlParser from 'react-html-parser';
 
 const QuestionView = ({ questionDetails }) => {
-
+    console.log(questionDetails)
     return (
         <DetailsContainer >
             <QuestionTitle>
-                {questionDetails.questionHeader}
+                {questionDetails.question.questionTitle && questionDetails.question.questionTitle}
             </QuestionTitle>
             <QuestionContainer>
                 <Vote>
                     <Arrow src={Up} />
-                    {questionDetails.votes}
+                    {questionDetails.question.votes}
                     <Arrow src={Down} />
                 </Vote>
                 <MessageBody>
-                    {questionDetails.questionBody}
-                    <Tags>
-                        {questionDetails.tags.map(el => <Tag>{el}</Tag>)}
-                    </Tags>
+                    {ReactHtmlParser(questionDetails.question.questionBody)}
+                    {questionDetails.question.tag &&
+                        <Tags>
+                        {questionDetails.question.tag.map(el => <Tag>{el.tag}</Tag>)}
+                        </Tags>
+                    }
+                    
                     <Stamp>
-                        Question by {questionDetails.user}
+                        Question by {"questionDetails.user"}
                         <br />
-                        {questionDetails.createdAt}
+                        {questionDetails.question.createdAt}
                     </Stamp>
                 </MessageBody>
             </QuestionContainer>
 
             <DetailsContainer>
-                <Answers answers={questionDetails.answers} />
+                
+                <Answers answers={questionDetails.question.answer} />
             </DetailsContainer>
         </DetailsContainer>
     )
 }
 
 export default QuestionView;
-
-/**
- *
- * expected props
- *
-{
-     question_id: 1,
-     questionHeader: 'some question',
-     questionBody: 'some body'
-     votes:0,
-     user:'',
-     createdAt:'date'
-     answers:
-     [
-         {
-            answer_id: "some integer",
-            answeredBy: "some user",
-            answer: "some answer",
-            createdAt:'date'
-            votes:3
-
-        },
-        {
-            answer_id: "some integer",
-            answeredBy: "some user",
-            answer: "some answer"
-            createdAt:'date'
-            votes:3
-        }
-     ]
- }
- */
-
 
 const QuestionContainer = Style.div`
     display:flex;
