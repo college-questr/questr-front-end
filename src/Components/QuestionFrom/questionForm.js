@@ -11,6 +11,7 @@ import { modules, formats } from './editorConfig';
 import { classOption } from './options';
 import LoadGif from '../../Img/loading-gif.gif';
 import Check from '../../Img/check.png';
+import MainNav from '../Nav/mainNav';
 
 const QuestionForm = (props) => {
 
@@ -54,10 +55,10 @@ const QuestionForm = (props) => {
       const tagArray = [misc.class, misc.instructor, ...misc.tags];
       tagArray.map(el => postTag({ variables: { tag: el, question_id: data.addQuestion.id } }));
 
-      setTimeout(()=> {
+      setTimeout(() => {
 
         props.history.push(`/question-detail/${data.addQuestion.id}`)
-      },4000)
+      }, 4000)
     }
 
 
@@ -100,84 +101,87 @@ const QuestionForm = (props) => {
   const validateQuestion = () => data !== undefined;
 
   return (
-    <div className="question-form-container">
-      <div className="main-content">
-        <h1 className="h1-form">Ask a question and join the community</h1>
-        {data && 
-        <h1 className="posted">
-          <img className='check' src={Check} alt=""/>
-               Question posted. Redirecting      
-           <img  className='loader' src={LoadGif} alt=""/>
-        </h1> }
-        <form className="question-form" onSubmit={submitHandler}>
-          <div className="width-controller">
-            <Dropdown
-              placeholder='Class'
-              fluid
-              search
-              selection
-              onChange={(e) => setMisc({ ...misc, class: e.target.textContent })}
-              options={classOption}
-
-            />
-          </div>
-          <label htmlFor="question-title" />
-          <input
-            type="text"
-            name="question-title"
-            className="question-input"
-            placeholder="Question Title"
-            onChange={onChangeHandler}
-          />
-
-          {/* <Editor changeHandler={SetTextEditorContent}/> */}
-          <ReactQuill theme="snow"
-            modules={modules}
-            formats={formats}
-            onChange={editorHandleChange}
-          >
-          </ReactQuill>
-
-          <div className="buttons">
-            <div className="left">
-              <Dropdown key='000001'
-                placeholder='Tags'
+    <div>
+      <MainNav />
+      <div className="question-form-container">
+        <div className="main-content">
+          <h1 className="h1-form">Ask a question and join the community</h1>
+          {data &&
+            <h1 className="posted">
+              <img className='check' src={Check} alt="" />
+              Question posted. Redirecting
+           <img className='loader' src={LoadGif} alt="" />
+            </h1>}
+          <form className="question-form" onSubmit={submitHandler}>
+            <div className="width-controller">
+              <Dropdown
+                placeholder='Class'
                 fluid
-                multiple
                 search
                 selection
-                clearable
-                options={getMultiSelectOpt()}
-                onChange={(e) => setMisc({ ...misc, tags: [...misc.tags, e.target.textContent] })}
+                onChange={(e) => setMisc({ ...misc, class: e.target.textContent })}
+                options={classOption}
 
-              />
-              <Input
-                placeholder='Instructor (optional)'
-                onChange={(e) => setMisc({ ...misc, instructor: e.target.value })}
               />
             </div>
-            <div className='right'></div>
+            <label htmlFor="question-title" />
+            <input
+              type="text"
+              name="question-title"
+              className="question-input"
+              placeholder="Question Title"
+              onChange={onChangeHandler}
+            />
 
-            <PostSubmitBtn type="submit">Post</PostSubmitBtn>
-          </div>
+            {/* <Editor changeHandler={SetTextEditorContent}/> */}
+            <ReactQuill theme="snow"
+              modules={modules}
+              formats={formats}
+              onChange={editorHandleChange}
+            >
+            </ReactQuill>
+
+            <div className="buttons">
+              <div className="left">
+                <Dropdown key='000001'
+                  placeholder='Tags'
+                  fluid
+                  multiple
+                  search
+                  selection
+                  clearable
+                  options={getMultiSelectOpt()}
+                  onChange={(e) => setMisc({ ...misc, tags: [...misc.tags, e.target.textContent] })}
+
+                />
+                <Input
+                  placeholder='Instructor (optional)'
+                  onChange={(e) => setMisc({ ...misc, instructor: e.target.value })}
+                />
+              </div>
+              <div className='right'></div>
+
+              <PostSubmitBtn type="submit">Post</PostSubmitBtn>
+            </div>
 
 
-        </form>
-      </div>
+          </form>
+        </div>
 
-      <div className="side-content">
-        <h1>How to ask</h1>
-        <h2>Ask questions about your homework</h2>
+        <div className="side-content">
+          <h1>How to ask</h1>
+          <h2>Ask questions about your homework</h2>
 
-        <ul>
-          <li>The title should be in the form of a question</li>
-          <li>Provide sufficient details</li>
-          <li>Be clear and concise</li>
-          <li>Once your question is posted, it is public.
-            Third parties may maintain public or private archives of the content on this site.
-            With this in mind, be sure to remove private data, security content,
+          <ul>
+            <li>The title should be in the form of a question</li>
+            <li>Provide sufficient details</li>
+            <li>Be clear and concise</li>
+            <li>Once your question is posted, it is public.
+              Third parties may maintain public or private archives of the content on this site.
+              With this in mind, be sure to remove private data, security content,
             or any other sensitive information from your question before posting it.</li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   )
@@ -199,7 +203,6 @@ const SubmitButton = Style.button`
     line-height: 21px;
     color: ${loginButtonText};
     transition: 1s;
-
     &:hover{
         cursor:pointer;
         border: 2px solid #4169E1;
@@ -213,11 +216,9 @@ height: 37px;
   color:white;
   transition:500ms;
   text-decoration:none
-
   &:hover{
       border: 5px solid #93B2E0;
       cursor:pointer;
-
   }
 `
 
