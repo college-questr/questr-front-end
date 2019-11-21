@@ -12,7 +12,8 @@
 
 ## keep in mind
 
-  -
+ - login and sign up not working yet, to navigate the page use the routes specified below
+  
 ## Design 
 
   https://www.figma.com/file/bWpM9FdMZwdeuAEgIrkRBu/answers?node-id=33%3A1
