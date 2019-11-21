@@ -13,8 +13,9 @@ const MainNav = (props) => {
       </LeftSection>
       <Search />
       <RightSection>
-        <NavEl>Recent Questions</NavEl>
-        <NavEl>Classroom</NavEl>
+        <NavLink
+          className="right-links" to="/">Recent Questions</NavLink>
+        <NavLink className="right-links" to="/">Classroom</NavLink>
 
         <NavEl className="dropdown">
           <Button className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +49,15 @@ const LeftSection = Style.div`
     margin:15px 30px;
     font-size:2rem;
     padding-top: 10px;
+
+    a{
+      color: #fff;
+      text-decoration: none;
+
+      &:hover{
+        color: #fff;
+      }
+    }
 `
 
 const RightSection = Style.div`
@@ -55,6 +65,23 @@ const RightSection = Style.div`
     flex-flow: row nowrap;
     justify-content: space-around;
     width:400px;
+
+    .right-links{
+      margin: 25px 0 25px 0;
+      font-family: ${mainFont};
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: #fff;
+      transition:500ms;
+      padding-bottom:5px;
+      
+      &:hover{
+          cursor: pointer;
+          border-bottom: 0.3rem solid ${labelColor};
+      }
+    }
 `
 
 const NavEl = Style.div`
@@ -65,12 +92,12 @@ const NavEl = Style.div`
     font-size: 18px;
     line-height: 21px;
     color: #fff;
-    transition:500ms
-    padding-bottom:5px
-
+    transition:500ms;
+    padding-bottom:5px;
+    
     &:hover{
         cursor: pointer;
-        border-bottom:3px solid ${labelColor};
+        border-bottom: 0.3 solid ${labelColor};
     }
 `
 
