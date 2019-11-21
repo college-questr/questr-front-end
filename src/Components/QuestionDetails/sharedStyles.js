@@ -34,8 +34,12 @@ export const MessageBody = Style.div `
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-
-
+    min-height:100px;
+    display:flex;
+    flex-flow:column;
+    justify-content:space-between;
+    min-width:90%;
+    
     color: #000000;
 
     margin: 30px 0px 40px 30px;
@@ -52,12 +56,15 @@ export const Tag = Style.button `
     background: #93B2E0;
     border: 1px  solid #93B2E0;
     border-radius: 3px;
-    width: 77.55px;
+    max-width:150px;
+    width: inherit;
     height: 28px;
     color:white;
     margin-right:20px;
-    margin:40px 20px 10px 0px;
+    margin:0px 20px 10px 0px;
     transition:1s
+    font-size:1rem;
+    
 
     &:hover{
         border: 3px solid #93B2E0;

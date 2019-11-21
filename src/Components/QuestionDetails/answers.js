@@ -46,6 +46,11 @@ export default Answers;
 const AnswerContainer = Style.div`
     display:flex;
     flex-flow:row wrap;
+      max-width: 823px;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content:space-between;
+    margin-left:20px;
 
  `
 

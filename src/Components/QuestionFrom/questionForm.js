@@ -9,10 +9,11 @@ import { GET_TAGS } from '../../graphQL/queries';
 import { Dropdown, Input } from 'semantic-ui-react';
 import { modules, formats } from './editorConfig';
 import { classOption } from './options';
+import LoadGif from '../../Img/loading-gif.gif';
+import Check from '../../Img/check.png';
 import MainNav from '../Nav/mainNav';
 
-
-const QuestionForm = () => {
+const QuestionForm = (props) => {
 
   const [question, setQuestion] = useState("")
   const [editorText, setEditorText] = useState("")
@@ -53,6 +54,11 @@ const QuestionForm = () => {
     if (validateQuestion()) {
       const tagArray = [misc.class, misc.instructor, ...misc.tags];
       tagArray.map(el => postTag({ variables: { tag: el, question_id: data.addQuestion.id } }));
+
+      setTimeout(() => {
+
+        props.history.push(`/question-detail/${data.addQuestion.id}`)
+      }, 4000)
     }
 
 
@@ -100,6 +106,12 @@ const QuestionForm = () => {
       <div className="question-form-container">
         <div className="main-content">
           <h1 className="h1-form">Ask a question and join the community</h1>
+          {data &&
+            <h1 className="posted">
+              <img className='check' src={Check} alt="" />
+              Question posted. Redirecting
+           <img className='loader' src={LoadGif} alt="" />
+            </h1>}
           <form className="question-form" onSubmit={submitHandler}>
             <div className="width-controller">
               <Dropdown
@@ -191,7 +203,6 @@ const SubmitButton = Style.button`
     line-height: 21px;
     color: ${loginButtonText};
     transition: 1s;
-
     &:hover{
         cursor:pointer;
         border: 2px solid #4169E1;
@@ -205,11 +216,9 @@ height: 37px;
   color:white;
   transition:500ms;
   text-decoration:none
-
   &:hover{
       border: 5px solid #93B2E0;
       cursor:pointer;
-
   }
 `
 

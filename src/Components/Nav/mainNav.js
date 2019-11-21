@@ -6,7 +6,6 @@ import Search from '../search';
 
 const MainNav = (props) => {
 
-
   return (
     <NavContainer>
       <LeftSection>
@@ -48,6 +47,7 @@ const NavContainer = Style.nav`
 const LeftSection = Style.div`
     margin:15px 30px;
     font-size:2rem;
+    padding-top: 10px;
 `
 
 const RightSection = Style.div`
@@ -56,10 +56,6 @@ const RightSection = Style.div`
     justify-content: space-around;
     width:400px;
 `
-
-// const NavLink = Style.a`
-//   color: #fff;
-// `
 
 const NavEl = Style.div`
     margin: 25px 0 25px 0;

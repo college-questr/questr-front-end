@@ -12,8 +12,7 @@
 
 ## keep in mind
 
-  -we dont have a backend yet so anything that invloves and api call just leave it blank
-  
+  -
 ## Design 
 
   https://www.figma.com/file/bWpM9FdMZwdeuAEgIrkRBu/answers?node-id=33%3A1
@@ -70,7 +69,7 @@ npm test
 
     -http://localhost:<port>/dashboard
 
-    -http://localhost:<port>/question/:id
+    -http://localhost:<port>/question-detail/:id
 
 ## QraphQL queries and mutations
 
