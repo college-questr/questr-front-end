@@ -61,7 +61,7 @@ export const Tag = Style.button `
     height: 28px;
     color:white;
     margin-right:20px;
-    margin:0px 20px 10px 0px;
+    margin:20px 10px 0px 0px;
     transition:1s
     font-size:1rem;
     
