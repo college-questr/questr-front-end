@@ -8,6 +8,7 @@ import {
 } from './sharedStyles'
 import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
+import ReactHtmlParser from 'react-html-parser';
 
 const Answers = ({answers}) => {
 
@@ -24,7 +25,7 @@ const Answers = ({answers}) => {
                                 <Arrow src={Down} />
                             </Vote>
                             <MessageBody>
-                                {el.answer}
+                                {ReactHtmlParser(el.answer)}
                                 <Stamp>
                                     Answered by {el.answeredBy}
                                     <br />
