@@ -17,8 +17,11 @@ import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
 import Star from '../../Img/Star.png'
 import ReactHtmlParser from 'react-html-parser';
+import {dateBuilder} from '../Utilities/dateBuilder'
+
 
 const QuestionView = ({ questionDetails }) => {
+
     console.log(questionDetails)
     return (
         <DetailsContainer >
@@ -42,7 +45,7 @@ const QuestionView = ({ questionDetails }) => {
                     <Stamp>
                         Question by {"questionDetails.user"}
                         <br />
-                        {questionDetails.question.createdAt}
+                        {dateBuilder(questionDetails.question.createdAt)}
                     </Stamp>
                 </MessageBody>
             </QuestionContainer>
