@@ -9,6 +9,7 @@ import {
 import Down from '../../Img/downArr.png';
 import Up from '../../Img/upArrow.png';
 import ReactHtmlParser from 'react-html-parser';
+import {dateBuilder} from '../Utilities/dateBuilder';
 
 const Answers = ({answers}) => {
 
@@ -29,7 +30,7 @@ const Answers = ({answers}) => {
                                 <Stamp>
                                     Answered by {el.answeredBy}
                                     <br />
-                                    {el.createdAt}
+                                    {dateBuilder(el.createdAt)}
                                 </Stamp>
                             </MessageBody>
                         </SingleAnswer>
