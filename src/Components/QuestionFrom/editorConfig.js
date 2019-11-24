@@ -3,7 +3,7 @@
          [{
              'header': [1, 2, false]
          }],
-         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+         ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
          [{
              'list': 'ordered'
          }, {
@@ -23,5 +23,5 @@
      'header',
      'bold', 'italic', 'underline', 'strike', 'blockquote',
      'list', 'bullet', 'indent',
-     'link', 'image'
+     'link', 'image', 'code-block'
  ];
