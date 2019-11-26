@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import Style from 'styled-components';
 import { getQuestionItemQuery } from '../../graphQL/queries';
+import {dateBuilder} from '../Utilities/dateBuilder';
 
 
 const QuestionItem = (props) => {
@@ -10,11 +11,11 @@ const QuestionItem = (props) => {
   const colorPicker = (count) => {
     let decidedColor = "";
 
-    if (count > 0){
-      decidedColor="green";
-    } else if (count < 0){
+    if (count > 0) {
+      decidedColor = "green";
+    } else if (count < 0) {
       decidedColor = "red";
-    } else{
+    } else {
       decidedColor = "";
     }
 
@@ -28,13 +29,13 @@ const QuestionItem = (props) => {
   let data = props.data;
   return (
     <>
-      {data.loading ? 
-      <h1>"Loading" </h1>: 
-      data.questions.map(question => {
+      {data.loading ?
+        <h1>"Loading" </h1> :
+        data.questions.map(question => {
           return (
-            <div 
-            key={question.id} 
-            className="item-container" 
+            <div
+              key={question.id}
+              className="item-container"
             >
               <div className="upvote">
                 <div className={`votes ${colorPicker(question.votes)}`}>
@@ -48,23 +49,22 @@ const QuestionItem = (props) => {
               </div>
               <div className="middle">
                 <h1 onClick={() => redirect(question.id)}>
-                {question.questionTitle}
+                  {question.questionTitle}
                 </h1>
                 <div className="tags">
                   {question.tag.map(el => <button>{el.tag}</button>)}
-                  
                 </div>
-                {/* <div className="createdAt">
-                <p>{question.createdAt}</p>
-              </div> */}
+                <div className="createdAt">
+                <p>{dateBuilder(question.createdAt)}</p>
+              </div>
               </div>
             </div>
           )
         })
       }
-      
+
     </>
-    )
+  )
 
 }
 
