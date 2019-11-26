@@ -6,8 +6,6 @@ import {dateBuilder} from '../Utilities/dateBuilder';
 
 
 const QuestionItem = (props) => {
-
-  console.log(props);
   const colorPicker = (count) => {
     let decidedColor = "";
 
@@ -23,7 +21,6 @@ const QuestionItem = (props) => {
   }
 
   const redirect = (id) => {
-    console.log(props)
     props.history.push(`/question-detail/${id}`)
   }
   let data = props.data;
