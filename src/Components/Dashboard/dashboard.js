@@ -2,8 +2,8 @@ import React from 'react';
 import QuestionItem from './questionItem';
 // import Search from './search';
 import Filter from './filter';
-import QuestionButton from './questionButton';
-import MainNav from './Nav/mainNav';
+import QuestionButton from '../questionButton';
+import MainNav from '../Nav/mainNav';
 
 const Dashboard = () => {
   return (

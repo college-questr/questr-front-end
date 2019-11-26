@@ -1,56 +1,93 @@
-.item-container{
+.item-container {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: 30px;
   border-bottom: 1px solid #d0cdcd;
   padding-bottom: 10px;
 
-  .upvote{
+  .upvote {
     display: flex;
     margin-right: 30px;
     color: #636161;
 
-    .votes{
-      background-color: #D3D0D0
+    .votes {
+      background: #EEEEEE;
+      border: 3px solid #D3D0D0;
+      width: 71.52px;
+      height: 87px;
+      border-radius: 8px;
+      margin-right: 10px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+
     }
 
-    p{
-      margin-right: 10px;
-      border-radius: 10px;
-      background-color: #C2EDBC;
-      padding: 30px 5px;
+    .answer-count {
+      width: 87px;
+      height: 87px;
+      background: #D3D0D0;
+      border-radius: 8px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p.count {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 39px;
+      line-height: 46px;
+      margin: 0;
+    }
+
+    p.label {
+      color: rgba(13, 12, 12, 0.54);
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 17px;
+      line-height: 20px;
     }
   }
 
-  .middle{
+  .middle {
     padding-top: 10px;
 
-    h1{
+    h1 {
       font-size: 25px;
       color: #636161;
     }
 
-    .tags{
+    .tags {
       margin-top: 10px;
 
-      button{
+      button {
         color: #fff;
         background-color: $buttonColor;
         border-radius: 5px;
         border: none;
         margin-right: 5px;
         padding: 5px 10px;
-    
-          &:hover{
-            cursor:pointer;
-            background-color: #4169E1;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #4169E1;
         }
       }
     }
   }
 }
 
+.green{
+ background: rgba(194, 237, 188, 0.62) !important;
+ border: 3px solid rgba(194, 237, 188, 0.62) !important;
+}
 
-
-
-
+.red{
+  background: rgba(236, 149, 149, 0.53) !important;
+  border: 3px solid #EC9595 !important;
+}
