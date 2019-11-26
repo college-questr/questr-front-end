@@ -5,13 +5,13 @@ import Filter from './filter';
 import QuestionButton from '../questionButton';
 import MainNav from '../Nav/mainNav';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
     <div>
       <MainNav />
       <div className="dashboard-container">
         <div className="dashboard-top">
-          <QuestionItem />
+          <QuestionItem {...props}/>
         </div>
         <div className="dashboard-side">
           <QuestionButton />

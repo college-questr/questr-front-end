@@ -20,6 +20,11 @@ const QuestionItem = (props) => {
 
     return decidedColor;
   }
+
+  const redirect = (id) => {
+    console.log(props)
+    props.history.push(`/question-detail/${id}`)
+  }
   let data = props.data;
   return (
     <>
@@ -27,7 +32,10 @@ const QuestionItem = (props) => {
       <h1>"Loading" </h1>: 
       data.questions.map(question => {
           return (
-            <div key={question.id} className="item-container">
+            <div 
+            key={question.id} 
+            className="item-container" 
+            >
               <div className="upvote">
                 <div className={`votes ${colorPicker(question.votes)}`}>
                   <p className='count'>{question.votes}</p>
@@ -39,7 +47,9 @@ const QuestionItem = (props) => {
                 </div>
               </div>
               <div className="middle">
-                <h1>{question.questionTitle}</h1>
+                <h1 onClick={() => redirect(question.id)}>
+                {question.questionTitle}
+                </h1>
                 <div className="tags">
                   {question.tag.map(el => <button>{el.tag}</button>)}
                   
