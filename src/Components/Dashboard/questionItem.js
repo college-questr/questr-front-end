@@ -6,6 +6,7 @@ import { getQuestionItemQuery } from '../../graphQL/queries';
 
 const QuestionItem = (props) => {
 
+  console.log(props);
   const colorPicker = (count) => {
     let decidedColor = "";
 
@@ -40,7 +41,8 @@ const QuestionItem = (props) => {
               <div className="middle">
                 <h1>{question.questionTitle}</h1>
                 <div className="tags">
-                  <button>{question.tag.tag}</button>
+                  {question.tag.map(el => <button>{el.tag}</button>)}
+                  
                 </div>
                 {/* <div className="createdAt">
                 <p>{question.createdAt}</p>
