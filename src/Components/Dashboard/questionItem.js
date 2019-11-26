@@ -23,6 +23,7 @@ const QuestionItem = (props) => {
   const redirect = (id) => {
     props.history.push(`/question-detail/${id}`)
   }
+
   let data = props.data;
   return (
     <>
@@ -31,7 +32,7 @@ const QuestionItem = (props) => {
         data.questions.map(question => {
           return (
             <div
-              key={question.id}
+              key={question.id} 
               className="item-container"
             >
               <div className="upvote">
