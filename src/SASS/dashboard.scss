@@ -1,13 +1,14 @@
-.dashboard-container{
-  display: flex;
+.dashboard-container {
+    display: flex;
+    justify-content: center;
 }
 
-.dashboard-top{
-  width: 800px;
-  margin-left: 30px;
+.dashboard-top {
+    width: 800px;
+    margin-left: 30px;
 }
 
-.dashboard-side{
-  width: 300px;
-  margin-left: 50px;
+.dashboard-side {
+    width: 300px;
+    margin-left: 50px;
 }
