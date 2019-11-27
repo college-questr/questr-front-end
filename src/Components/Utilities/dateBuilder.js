@@ -5,8 +5,8 @@ export const dateBuilder = (ISOTime) => {
     const stamp = new Date(now - pastDateStamp.getTime());
     const pastHr = stamp / 1000 / 60 / 60;
 
-    console.log(pastHr)
     let pastTime = "";
+    
     if (pastHr < 1) {
         pastTime = `posted ${Math.ceil(pastHr / 60)} mins ago`;
     } else if (pastHr > 24) {
@@ -15,8 +15,7 @@ export const dateBuilder = (ISOTime) => {
         pastTime = `posted ${Math.round(pastHr / 24 / 30)} months ago`
     } else if (pastHr > 8760 ){
         pastTime = `posted ${Math.round(pastHr / 24 / 30 /12)} years ago`
-    }
-    else {
+    } else {
         pastTime = `posted ${Math.round(pastHr)} hours ago`
     }
 
