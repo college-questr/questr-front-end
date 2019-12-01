@@ -58,7 +58,7 @@ const QuestionItem = (props) => {
               </div>
             </div>
           )
-        })
+        }).sort((a,b) => (dateBuilder(a.createdAt) > dateBuilder(b.createdAt) ? 1 : -1 ))
       }
 
     </>
