@@ -4,6 +4,7 @@ import QuestionItem from './questionItem';
 import Filter from './filter';
 import QuestionButton from '../questionButton';
 import MainNav from '../Nav/mainNav';
+import SortButton from './sortButtons'
 
 const Dashboard = (props) => {
   return (
@@ -11,7 +12,10 @@ const Dashboard = (props) => {
       <MainNav />
       <div className="dashboard-container">
         <div className="dashboard-top">
-          <QuestionItem {...props}/>
+          <SortButton />
+
+          {/* need to pass a sort key  */}
+          <QuestionItem {...props} />
         </div>
         <div className="dashboard-side">
           <QuestionButton />

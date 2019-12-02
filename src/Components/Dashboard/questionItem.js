@@ -20,6 +20,7 @@ const QuestionItem = (props) => {
     return decidedColor;
   }
 
+
   const redirect = (id) => {
     props.history.push(`/question-detail/${id}`)
   }
