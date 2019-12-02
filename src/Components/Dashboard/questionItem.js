@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import { graphql } from 'react-apollo';
 import Style from 'styled-components';
 import { getQuestionItemQuery } from '../../graphQL/queries';
@@ -6,7 +6,11 @@ import {dateBuilder} from '../Utilities/dateBuilder';
 
 
 const QuestionItem = (props) => {
+
+  let data = props.data;
+
   const colorPicker = (count) => {
+
     let decidedColor = "";
 
     if (count > 0) {
@@ -20,12 +24,46 @@ const QuestionItem = (props) => {
     return decidedColor;
   }
 
+  const sortByCreated = (a,b) => a.createdAt < b.createdAt ? 1 : -1;
+  const sortByAnswered = (a, b) => a.answer.length > b.answer.length ? -1 : 1;
+  const sortByUnanswered = (a, b) => (a.answer.length < b.answer.length) ? -1 : 1;
+  const sortByVotes = (a, b) => (a.votes > b.votes) ? -1 : 1;
 
+  
   const redirect = (id) => {
     props.history.push(`/question-detail/${id}`)
   }
 
-  let data = props.data;
+
+  /**
+   * this decides how the questions are sorted
+   * @param key 
+   */
+  const sortData = (key) => {
+    switch(key){
+      case 0:
+        return data.questions.sort(sortByCreated);
+      case 1:
+        return data.questions.sort(sortByAnswered);
+      case 2:
+        return data.questions.sort(sortByUnanswered);
+      case 3: 
+        return data.questions.sort(sortByVotes)
+      default:
+        return data.questions.sort(sortByCreated);
+    }
+
+  }
+
+  //sorts the data when data is loaded, sortByKey is coming fron the sortButtons.js
+  if (!data.loading) {
+    sortData(props.sortByKey);
+  }
+
+  useEffect(()=> {
+
+  }, [data])
+
   return (
     <>
       {data.loading ?
@@ -59,9 +97,8 @@ const QuestionItem = (props) => {
               </div>
             </div>
           )
-        }).sort((a,b) => (dateBuilder(a.createdAt) > dateBuilder(b.createdAt) ? 1 : -1 ))
+        })
       }
-
     </>
   )
 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Style from 'styled-components';
 
-const SortButtons = () => {
+const SortButtons = ({setSort}) => {
 
     const [options, setOptions] = useState({ sortKey: 0, value: false });
 
     const clickHandler = (e, choiceKey) => {
         e.preventDefault()
         setOptions({ ...options, sortKey: choiceKey, value: true });
+        setSort(choiceKey);
     }
 
     return (
