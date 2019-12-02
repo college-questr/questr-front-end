@@ -24,9 +24,16 @@ const QuestionItem = (props) => {
     return decidedColor;
   }
 
-  const sortByCreated = (a,b) => a.createdAt < b.createdAt ? 1 : -1;
+  const sortByCreated = (a,b) => {
+    let aDate = new Date(a.createdAt)
+    let bDate = new Date(b.createdAt)
+    return aDate.getTime() < bDate.getTime() ? 1 : -1;
+  } 
+
   const sortByAnswered = (a, b) => a.answer.length > b.answer.length ? -1 : 1;
+
   const sortByUnanswered = (a, b) => (a.answer.length < b.answer.length) ? -1 : 1;
+  
   const sortByVotes = (a, b) => (a.votes > b.votes) ? -1 : 1;
 
   
