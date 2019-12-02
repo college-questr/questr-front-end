@@ -11,3 +11,14 @@
     border-top: 0px;
     height: 90%;
 }
+
+pre.ql-syntax {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    counter-reset: line;
+    counter-increment: line;
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
