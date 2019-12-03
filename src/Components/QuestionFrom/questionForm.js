@@ -12,6 +12,7 @@ import { classOption } from './options';
 import LoadGif from '../../Img/loading-gif.gif';
 import Check from '../../Img/check.png';
 import MainNav from '../Nav/mainNav';
+import _ from 'lodash'
 
 const QuestionForm = (props) => {
 
@@ -52,11 +53,11 @@ const QuestionForm = (props) => {
 
     //if question is posted then attach tags
     if (validateQuestion()) {
-      const tagArray = [misc.class, misc.instructor, ...misc.tags];
+      const tagArray = [misc.class, misc.instructor, ...misc.tags].filter(el => el !== "");
       tagArray.map(el => postTag({ variables: { tag: el, question_id: data.addQuestion.id } }));
 
+      //wait to redirect 
       setTimeout(() => {
-
         props.history.push(`/question-detail/${data.addQuestion.id}`)
       }, 4000)
     }
@@ -85,6 +86,7 @@ const QuestionForm = (props) => {
   const getMultiSelectOpt = () => {
     let tagOption = [];
     let count = 0;
+
     if (!tagsData.loading) {
       tagOption = tagsData.data.tags.map(el => {
         return {
@@ -92,7 +94,9 @@ const QuestionForm = (props) => {
         }
       })
     }
-    return tagOption
+
+    const uniqOptions =_.uniqBy(tagOption,'text')
+    return uniqOptions
   }
 
   /**
@@ -100,6 +104,7 @@ const QuestionForm = (props) => {
    */
   const validateQuestion = () => data !== undefined;
 
+ 
   return (
     <div>
       <MainNav />
@@ -119,7 +124,7 @@ const QuestionForm = (props) => {
                 fluid
                 search
                 selection
-                onChange={(e) => setMisc({ ...misc, class: e.target.textContent })}
+                onChange={(e, {value}) => setMisc({ ...misc, class: value })}
                 options={classOption}
 
               />
@@ -151,7 +156,7 @@ const QuestionForm = (props) => {
                   selection
                   clearable
                   options={getMultiSelectOpt()}
-                  onChange={(e) => setMisc({ ...misc, tags: [...misc.tags, e.target.textContent] })}
+                  onChange={(e, {value}) => setMisc({ ...misc, tags:value })}
 
                 />
                 <Input
