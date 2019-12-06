@@ -1,13 +1,12 @@
-import React ,{useEffect} from 'react';
+import React ,{useEffect, useState} from 'react';
 import { graphql } from 'react-apollo';
 import Style from 'styled-components';
-import { getQuestionItemQuery } from '../../graphQL/queries';
+import { useQuery } from '@apollo/react-hooks';
+import { getQuestionItemQuery,fetchMoreQuestion } from '../../graphQL/queries';
 import {dateBuilder} from '../Utilities/dateBuilder';
 
 
-const QuestionItem = (props) => {
-
-  let data = props.data;
+const QuestionItem = ({ data, sortByKey, onLoad, ...props} ) => {
 
   const colorPicker = (count) => {
 
@@ -62,13 +61,25 @@ const QuestionItem = (props) => {
 
   }
 
+  const  handleScroll = () => {
+    const body = document.body
+    if (body.scrollHeight - body.offsetHeight === document.documentElement.scrollTop){
+      onLoad()
+    };
+  }
+
   //sorts the data when data is loaded, sortByKey is coming fron the sortButtons.js
   if (!data.loading) {
     sortData(props.sortByKey);
   }
 
-  useEffect(()=> {
+  // const moreQuestions = useQuery(fetchMoreQuestion())
 
+  useEffect(()=> {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('event', handleScroll);
+    }
   }, [data])
 
   return (
@@ -111,5 +122,5 @@ const QuestionItem = (props) => {
 
 }
 
-export default graphql(getQuestionItemQuery)(QuestionItem);
+export default QuestionItem;
 
