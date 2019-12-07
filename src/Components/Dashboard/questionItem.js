@@ -61,12 +61,12 @@ const QuestionItem = ({ data, sortByKey, onLoad, ...props} ) => {
 
   }
 
-  const  handleScroll = () => {
-    const body = document.body
-    if (body.scrollHeight - body.offsetHeight === document.documentElement.scrollTop){
-      onLoad()
-    };
-  }
+  // const  handleScroll = () => {
+  //   const body = document.body
+  //   if (body.scrollHeight - body.offsetHeight === document.documentElement.scrollTop){
+  //     onLoad
+  //   };
+  // }
 
   //sorts the data when data is loaded, sortByKey is coming fron the sortButtons.js
   if (!data.loading) {
@@ -76,10 +76,10 @@ const QuestionItem = ({ data, sortByKey, onLoad, ...props} ) => {
   // const moreQuestions = useQuery(fetchMoreQuestion())
 
   useEffect(()=> {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('event', handleScroll);
-    }
+    // window.addEventListener('scroll', handleScroll);
+    // return () => {
+    //   window.removeEventListener('event', handleScroll);
+    // }
   }, [data])
 
   return (

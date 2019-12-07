@@ -10,20 +10,27 @@ import {
   fetchMoreQuestion
 } from '../../graphQL/queries';
 import { useQuery } from 'react-apollo';
+import { Button } from 'semantic-ui-react';
+import InfiniteScroll from 'react-infinite-scroller';
+
+
 
 const Dashboard = (props) => {
 
   const [sortBy, setSortBy] = useState(0)
   const questions = useQuery(fetchMoreQuestion)
 
-
   useEffect(() => {
-    if (!questions.loading) console.log(questions.data,questions.data.questions[questions.data.questions.length - 1].id)
+    // if (!questions.loading) console.log(questions.data, questions.data.questions[questions.data.questions.length - 1].id)
+    // window.addEventListener('scroll', handleScroll);
+    // return () => {
+    //   window.removeEventListener('event', handleScroll);
+    // }
   }, [questions]);
 
   const loadMore = () => {
-
-    if (!questions.loading) {
+    console.log(questions.data)
+    if(!questions.loading){
       questions.fetchMore({
         // note this is a different query than the one used in the
         // Query component
@@ -35,13 +42,14 @@ const Dashboard = (props) => {
           const newComments = fetchMoreResult.questions;
 
           if (!fetchMoreResult) return previousResult;
-          return { 
+          return {
             questions: [...previousEntry, ...newComments],
-             __typename: previousEntry.__typename
-            }
+            __typename: previousEntry.__typename
+          }
         }
       })
     }
+    
   }
 
   return (
@@ -50,26 +58,21 @@ const Dashboard = (props) => {
       <div className="dashboard-container">
         <div className="dashboard-top">
           <SortButton setSort={setSortBy} />
-          {!questions.loading && <QuestionItem {...props} sortByKey={sortBy} data={questions.data} onLoad={ () => {
-            questions.fetchMore({
-              // note this is a different query than the one used in the
-              // Query component
-              query: fetchMoreQuestion,
-              variables: { lastId: questions.data.questions[questions.data.questions.length - 1].id },
-              updateQuery: (previousResult, { fetchMoreResult }) => {
-                const previousEntry = previousResult.questions;
-                const newComments = fetchMoreResult.questions;
-
-                if (!fetchMoreResult) return previousResult;
-                return {
-                  questions: [...previousEntry, ...newComments],
-                  __typename: previousEntry.__typename
-                }
-              }
-            })
+          {!questions.loading &&
+            <QuestionItem
+              {...props}
+              sortByKey={sortBy}
+              data={questions.data}
+              onLoad={loadMore} />
           }
-           
-          } />}
+          {/* <Button onClick={loadMore} fluid >load more</Button> */}
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={true || false}
+            loader={<div className="loader" key={0}>Loading ...</div>}
+          >
+          </InfiniteScroll>
         </div>
         <div className="dashboard-side">
           <QuestionButton />
