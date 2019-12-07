@@ -1,4 +1,6 @@
-import { gql } from 'apollo-boost';
+import {
+    gql
+} from 'apollo-boost';
 
 
 export const GET_QUESTION_BY_ID_WITH_ANSWERS = (id) => gql `
@@ -61,9 +63,9 @@ export const GET_ALL_QUESTIONS = gql `
 }
 `
 
-export const getQuestionItemQuery = gql`
+export const getQuestionItemQuery = gql `
   {
-    questions {
+    questions(pageSize:10) {
       id  
       questionTitle
       answer{
@@ -79,7 +81,25 @@ export const getQuestionItemQuery = gql`
     }
   }
   `
-  
+
+export const fetchMoreQuestion = gql `
+  query questions($lastId: ID) {
+    questions(pageSize:10,lastId:$lastId) {
+      id  
+      questionTitle
+      answer{
+        id
+        answer
+      }
+      votes
+      tag{
+        question_id
+        tag
+      }
+      createdAt
+    }
+  }
+  `
 export const GET_TAGS = gql `
 {
     tags {

@@ -1,13 +1,8 @@
 import React ,{useEffect} from 'react';
-import { graphql } from 'react-apollo';
-import Style from 'styled-components';
-import { getQuestionItemQuery } from '../../graphQL/queries';
 import {dateBuilder} from '../Utilities/dateBuilder';
 
 
-const QuestionItem = (props) => {
-
-  let data = props.data;
+const QuestionItem = ({ data, sortByKey, onLoad, loading, ...props} ) => {
 
   const colorPicker = (count) => {
 
@@ -62,14 +57,15 @@ const QuestionItem = (props) => {
 
   }
 
+
   //sorts the data when data is loaded, sortByKey is coming fron the sortButtons.js
-  if (!data.loading) {
-    sortData(props.sortByKey);
+  if (!loading) {
+    sortData(sortByKey);
   }
 
   useEffect(()=> {
 
-  }, [data])
+  }, [data,sortData])
 
   return (
     <>
@@ -111,5 +107,5 @@ const QuestionItem = (props) => {
 
 }
 
-export default graphql(getQuestionItemQuery)(QuestionItem);
+export default QuestionItem;
 
