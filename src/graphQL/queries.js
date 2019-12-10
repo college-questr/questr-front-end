@@ -109,7 +109,7 @@ export const GET_TAGS = gql `
 `
 
 export const SEARCH = gql `
-query search($searchKey: Sting!) {
+query search($searchKey: String!) {
   search(searchKey: $searchKey) {
     id
     questionTitle
