@@ -19,10 +19,7 @@ const Dashboard = (props) => {
   const questions = useQuery(fetchMoreQuestion)
 
   useEffect(() => {
-    if(search.questions.data ){
-      console.log(search)
 
-    }
   }, [questions, sortBy, search]);
 
 
