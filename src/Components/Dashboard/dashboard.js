@@ -62,7 +62,7 @@ const Dashboard = (props) => {
                 onLoad={loadMore}
                 loading={questions.loading} />
             }
-            {/* <InfiniteScroll
+            <InfiniteScroll
               pageStart={0}
               loadMore={loadMore}
               hasMore={true || false}
@@ -70,7 +70,7 @@ const Dashboard = (props) => {
                 <div className="loader" key={0}>Loading ...</div>
               }
             >
-            </InfiniteScroll> */}
+            </InfiniteScroll>
           </div>
           <div className="dashboard-side">
             <QuestionButton />

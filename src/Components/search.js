@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { useQuery } from 'react-apollo';
 import { SEARCH } from '../graphQL/queries'
@@ -8,7 +8,7 @@ const Search = (props) => {
 
     let context = useContext(SearchContext);
     const [searchKey, setSearchKey] = useState("")
-    const searchData = useQuery(SEARCH, {variables: {searchKey:""}})
+    const searchData = useQuery(SEARCH, { variables: { searchKey: "" } })
 
     const changeHandler = e => {
         setSearchKey(e.target.value);
@@ -24,33 +24,37 @@ const Search = (props) => {
             fetchPolicy: "network-only",
             updateQuery: (previousResult, { fetchMoreResult }) => {
                 const newQuestions = fetchMoreResult;
-                return { ...newQuestions, __typename: newQuestions.__typename }
+                return {...newQuestions, __typename: newQuestions.__typename }
             }
         })
     }
 
     useEffect(() => {
-        context.dispatch({ type: "NEW_SEARCH", payload:searchData, key:searchKey});
+        if (context) {
+            context.dispatch({ type: "NEW_SEARCH", payload: searchData, key: searchKey });
+
+        }
 
     }, [searchKey, searchData])
 
     return (
 
-        <div className="search-container">
-                <form onSubmit={submitHandler}>
-                    <label htmlFor="search"></label>
-                    <SearchIcon className="search">Search</SearchIcon>
-                    <input
-                        type="text"
-                        placeholder="Search Questr"
-                        name="search"
-                        onChange={changeHandler}
-                    />
-                </form>
-        </div>
+        <
+        div className = "search-container" >
+        <
+        form onSubmit = { submitHandler } >
+        <
+        label htmlFor = "search" > < /label> <
+        SearchIcon className = "search" > Search < /SearchIcon> <
+        input type = "text"
+        placeholder = "Search Questr"
+        name = "search"
+        onChange = { changeHandler }
+        /> < /
+        form > <
+        /div>
 
     )
 }
 
 export default Search
-
