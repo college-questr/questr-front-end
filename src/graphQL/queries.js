@@ -107,3 +107,22 @@ export const GET_TAGS = gql `
     }
 }
 `
+
+export const SEARCH = gql `
+query search($searchKey: String!) {
+  search(searchKey: $searchKey) {
+    id
+    questionTitle
+    answer {
+      id
+      answer
+    }
+    votes
+    tag {
+      question_id
+      tag
+    }
+    createdAt
+  }
+}
+`

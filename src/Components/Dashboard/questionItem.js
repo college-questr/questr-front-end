@@ -41,10 +41,10 @@ const QuestionItem = ({ data, sortByKey, onLoad, loading, ...props} ) => {
    * this decides how the questions are sorted
    * @param key 
    */
-  const sortData = (key) => {
+  const sortData = (key,obj) => {
     switch(key){
       case 0:
-        return data.questions.sort(sortByCreated);
+        return (data.questions).sort(sortByCreated) ;
       case 1:
         return data.questions.sort(sortByAnswered);
       case 2:

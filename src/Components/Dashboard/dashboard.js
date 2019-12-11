@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import QuestionItem from './questionItem';
 import Filter from './filter';
 import QuestionButton from '../questionButton';
@@ -9,23 +9,23 @@ import {
 } from '../../graphQL/queries';
 import { useQuery } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
-
+import { SearchContext } from '../../context/searchContext'
+import {SearchReducer} from '../../context/searchReducer'
 
 
 const Dashboard = (props) => {
-
+  const [search, dispatch] = useReducer(SearchReducer,{questions:{data:{search:""},error:""},key:""})
   const [sortBy, setSortBy] = useState(0)
   const questions = useQuery(fetchMoreQuestion)
 
   useEffect(() => {
 
-  }, [questions,sortBy]);
+  }, [questions, sortBy, search]);
 
-  console.log(sortBy)
 
   const loadMore = () => {
     console.log(questions.data)
-    if(!questions.loading){
+    if (!questions.loading) {
       questions.fetchMore({
         // note this is a different query than the one used in the
         // Query component
@@ -44,39 +44,42 @@ const Dashboard = (props) => {
         }
       })
     }
-    
+
   }
 
   return (
-    <div>
-      <MainNav />
-      <div className="dashboard-container">
-        <div className="dashboard-top">
-          <SortButton setSort={setSortBy} />
-          {!questions.loading &&
-            <QuestionItem
-              {...props}
-              sortByKey={sortBy}
-              data={questions.data}
-              onLoad={loadMore}
-              loading={questions.loading} />
-          }
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={loadMore}
-            hasMore={true || false}
-            loader={
-            <div className="loader" key={0}>Loading ...</div>
-          }
-          >
-          </InfiniteScroll>
-        </div>
-        <div className="dashboard-side">
-          <QuestionButton />
-          <Filter />
+    <SearchContext.Provider value={{search, dispatch}}>
+      <div>
+        <MainNav />
+        <div className="dashboard-container">
+          <div className="dashboard-top">
+            <SortButton setSort={setSortBy} />
+            {!questions.loading &&
+              <QuestionItem
+                {...props}
+                sortByKey={sortBy}
+                data={ search.key === ""  ? questions.data : {questions:search.questions.data.search}}
+                onLoad={loadMore}
+                loading={questions.loading} />
+            }
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={loadMore}
+              hasMore={true || false}
+              loader={
+                <div className="loader" key={0}>Loading ...</div>
+              }
+            >
+            </InfiniteScroll>
+          </div>
+          <div className="dashboard-side">
+            <QuestionButton />
+            <Filter />
+          </div>
         </div>
       </div>
-    </div>
+    </SearchContext.Provider>
+
   )
 }
 
