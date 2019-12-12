@@ -17,8 +17,7 @@ const Search = (props) => {
 
         if(searchKey === ""){
             props.history.push("/dashboard")
-                    e.stopPropagation();
-
+            e.stopPropagation();
         }
     }
     useEffect(() => {
