@@ -23,6 +23,7 @@ const Search = (props) => {
             <div className="dashboard-container">
                 <div className="dashboard-top">
                     <SortButton setSort={setSortBy} />
+                    {loading && <h1>Searching...</h1>}
                     {data &&
                     <>
                         <h1>Results found: {data.search.length}</h1>
