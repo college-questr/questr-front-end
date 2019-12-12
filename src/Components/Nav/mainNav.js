@@ -11,7 +11,7 @@ const MainNav = (props) => {
       <LeftSection>
         <NavLink className="links" to="/dashboard">Questr</NavLink>
       </LeftSection>
-      <Search />
+      <Search {...props} />
       <RightSection>
         <NavLink
           className="right-links" to="/">Recent Questions</NavLink>

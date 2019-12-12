@@ -24,7 +24,7 @@ const Dashboard = (props) => {
 
 
   const loadMore = () => {
-    console.log(questions.data)
+    console.log(props)
     if (!questions.loading) {
       questions.fetchMore({
         // note this is a different query than the one used in the
@@ -50,7 +50,7 @@ const Dashboard = (props) => {
   return (
     <SearchContext.Provider value={{search, dispatch}}>
       <div>
-        <MainNav />
+        <MainNav {...props} />
         <div className="dashboard-container">
           <div className="dashboard-top">
             <SortButton setSort={setSortBy} />
