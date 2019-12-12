@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuestionItem from '../Components/Dashboard/questionItem';
 import Filter from '../Components/Dashboard/filter';
 import QuestionButton from '../Components/questionButton';
@@ -24,11 +24,14 @@ const Search = (props) => {
                 <div className="dashboard-top">
                     <SortButton setSort={setSortBy} />
                     {data &&
+                    <>
+                        <h1>Results found: {data.search.length}</h1>
                         <QuestionItem
                             {...props}
                             sortByKey={sortBy}
                             data={{questions: data.search}}
                             loading={""} />
+                    </>
                     }
                 </div>
                 <div className="dashboard-side">

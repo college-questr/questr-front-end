@@ -13,9 +13,12 @@ const Search = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         props.history.push(`/search=${encodeURI(searchKey)}`)
+        e.stopPropagation();
 
         if(searchKey === ""){
             props.history.push("/dashboard")
+                    e.stopPropagation();
+
         }
     }
     useEffect(() => {
@@ -28,7 +31,7 @@ const Search = (props) => {
         <div className="search-container" >
             <form onSubmit={submitHandler} >
                 <label htmlFor="search" > </label>
-                <SearchIcon className="search" > Search </SearchIcon>
+                <SearchIcon className="search"> Search </SearchIcon>
                 <input type="text"
                     placeholder="Search Questr"
                     name="search"
