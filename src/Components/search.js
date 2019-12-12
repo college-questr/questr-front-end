@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import { useQuery } from 'react-apollo';
-import { SEARCH } from '../graphQL/queries'
-import { SearchContext } from '../context/searchContext'
 
 const Search = (props) => {
 
-    let context = useContext(SearchContext);
     const [searchKey, setSearchKey] = useState("")
-    // const searchData = useQuery(SEARCH, { variables: { searchKey: "" } })
+    
 
     const changeHandler = e => {
         setSearchKey(e.target.value);
@@ -16,25 +12,14 @@ const Search = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        // searchData.fetchMore({
-        //     query: SEARCH,
-        //     variables: {
-        //         searchKey: searchKey
-        //     },
-        //     fetchPolicy: "network-only",
-        //     updateQuery: (previousResult, { fetchMoreResult }) => {
-        //         const newQuestions = fetchMoreResult;
-        //         return { ...newQuestions, __typename: newQuestions.__typename }
-        //     }
-        // })
-        console.log(props.history.push(`/search=${encodeURI(searchKey)}`))
+        props.history.push(`/search=${encodeURI(searchKey)}`)
+
+        if(searchKey === ""){
+            props.history.push("/dashboard")
+        }
     }
-
     useEffect(() => {
-        // if (context) {
-        //     context.dispatch({ type: "NEW_SEARCH", payload: searchData, key: searchKey });
-
-        // }
+ 
 
     }, [searchKey])
 
