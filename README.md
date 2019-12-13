@@ -71,6 +71,9 @@ npm test
     -http://localhost:<port>/dashboard
 
     -http://localhost:<port>/question-detail/:id
+    
+    -http://localhost:<port>/search=:searchKey
+
 
 ## QraphQL queries and mutations
 
