@@ -9,22 +9,18 @@ import {
 } from '../../graphQL/queries';
 import { useQuery } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
-import { SearchContext } from '../../context/searchContext'
-import {SearchReducer} from '../../context/searchReducer'
-
 
 const Dashboard = (props) => {
-  const [search, dispatch] = useReducer(SearchReducer,{questions:{data:{search:""},error:""},key:""})
   const [sortBy, setSortBy] = useState(0)
   const questions = useQuery(fetchMoreQuestion)
 
   useEffect(() => {
 
-  }, [questions, sortBy, search]);
+  }, [questions, sortBy]);
 
 
   const loadMore = () => {
-    console.log(questions.data)
+    console.log(props)
     if (!questions.loading) {
       questions.fetchMore({
         // note this is a different query than the one used in the
@@ -48,9 +44,8 @@ const Dashboard = (props) => {
   }
 
   return (
-    <SearchContext.Provider value={{search, dispatch}}>
       <div>
-        <MainNav />
+        <MainNav {...props} />
         <div className="dashboard-container">
           <div className="dashboard-top">
             <SortButton setSort={setSortBy} />
@@ -58,11 +53,11 @@ const Dashboard = (props) => {
               <QuestionItem
                 {...props}
                 sortByKey={sortBy}
-                data={ search.key === ""  ? questions.data : {questions:search.questions.data.search}}
+                data={  questions.data }
                 onLoad={loadMore}
                 loading={questions.loading} />
             }
-            <InfiniteScroll
+            {/* <InfiniteScroll
               pageStart={0}
               loadMore={loadMore}
               hasMore={true || false}
@@ -70,7 +65,7 @@ const Dashboard = (props) => {
                 <div className="loader" key={0}>Loading ...</div>
               }
             >
-            </InfiniteScroll>
+            </InfiniteScroll> */}
           </div>
           <div className="dashboard-side">
             <QuestionButton />
@@ -78,8 +73,6 @@ const Dashboard = (props) => {
           </div>
         </div>
       </div>
-    </SearchContext.Provider>
-
   )
 }
 

@@ -1,15 +1,15 @@
 import React from 'react';
-import './SASS/index.scss'
+import './SASS/index.scss';
 import { Route } from 'react-router-dom';
 import LoginRoute from './Route/loginRoute';
 import SignupRoute from './Route/signupRoute';
 import QuestionFormRoute from './Route/questionFormRoute';
 import DashboardRoute from './Route/dashboardRoute';
 import QuestionDetailPage from './Route/questionDetailRoute';
+import Search from './Route/searchRoute';
 
 
-function App() {
-  
+function App(props) {
   return (
     <div className="App">
       <Route exact path='/login' component={LoginRoute} />
@@ -17,6 +17,7 @@ function App() {
       <Route exact path='/add-question' component={QuestionFormRoute} />
       <Route exact path='/dashboard' component={DashboardRoute} />
       <Route exact path='/question-detail/:id' component={QuestionDetailPage} />
+      <Route exact path='/search=:searchKey' render={(props) => <Search {...props} />} />
     </div>
   );
 }

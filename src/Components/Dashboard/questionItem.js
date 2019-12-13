@@ -36,7 +36,6 @@ const QuestionItem = ({ data, sortByKey, onLoad, loading, ...props} ) => {
     props.history.push(`/question-detail/${id}`)
   }
 
-
   /**
    * this decides how the questions are sorted
    * @param key 
