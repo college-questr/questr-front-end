@@ -10,12 +10,13 @@ import Search from './Route/searchRoute';
 
 
 function App(props) {
+  
   return (
     <div className="App">
       <Route exact path='/login' component={LoginRoute} />
       <Route exact path='/signup' component={SignupRoute} />
       <Route exact path='/add-question' component={QuestionFormRoute} />
-      <Route exact path='/dashboard' component={DashboardRoute} />
+      <Route exact path='/' component={DashboardRoute} />
       <Route exact path='/question-detail/:id' component={QuestionDetailPage} />
       <Route exact path='/search=:searchKey' render={(props) => <Search {...props} />} />
     </div>
