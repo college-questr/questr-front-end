@@ -19,3 +19,24 @@
     background: #93B2E0 !important;
     cursor: pointer;
 }
+
+.add-more-questions {
+    width: 100%;
+    padding: 20px 30px;
+    background-color: $buttonColor;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    margin: 20px;
+    transition: 500ms;
+    &:hover {
+        background: white;
+        border: 1px solid $buttonColor;
+        color: $buttonColor;
+    }
+}
+
+.hide {
+    display: none;
+}
