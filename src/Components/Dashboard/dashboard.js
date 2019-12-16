@@ -13,12 +13,13 @@ import InfiniteScroll from 'react-infinite-scroller';
 const Dashboard = (props) => {
   const [sortBy, setSortBy] = useState(0)
   const questions = useQuery(fetchMoreQuestion)
+  const [isThereMore, setIsThereMore] = useState(true);
 
   useEffect(() => {
 
-  }, [questions, sortBy]);
+  }, [questions, sortBy, isThereMore]);
 
-
+console.log(isThereMore);
   const loadMore = () => {
     console.log(props)
     if (!questions.loading) {
@@ -31,7 +32,7 @@ const Dashboard = (props) => {
         updateQuery: (previousResult, { fetchMoreResult }) => {
           const previousEntry = previousResult.questions;
           const newQuestions = fetchMoreResult.questions;
-
+          if(newQuestions.length === 0) setIsThereMore(false)
           if (!fetchMoreResult) return previousResult;
           return {
             questions: [...previousEntry, ...newQuestions],
@@ -43,6 +44,8 @@ const Dashboard = (props) => {
 
   }
 
+
+
   return (
       <div>
         <MainNav {...props} />
@@ -50,22 +53,20 @@ const Dashboard = (props) => {
           <div className="dashboard-top">
             <SortButton setSort={setSortBy} />
             {!questions.loading &&
-              <QuestionItem
-                {...props}
-                sortByKey={sortBy}
-                data={  questions.data }
-                onLoad={loadMore}
-                loading={questions.loading} />
+            <div>
+            <QuestionItem
+              {...props}
+              sortByKey={sortBy}
+              data={questions.data}
+              onLoad={loadMore}
+              loading={questions.loading} />
+              
+            <button className={`add-more-questions ${!isThereMore ? 'hide' : ''}`} onClick={loadMore}>Load More</button>
+
+            </div>
+              
             }
-            {/* <InfiniteScroll
-              pageStart={0}
-              loadMore={loadMore}
-              hasMore={true || false}
-              loader={
-                <div className="loader" key={0}>Loading ...</div>
-              }
-            >
-            </InfiniteScroll> */}
+
           </div>
           <div className="dashboard-side">
             <QuestionButton />
