@@ -9,7 +9,7 @@ const MainNav = (props) => {
   return (
     <NavContainer>
       <LeftSection>
-        <NavLink className="links" to="/dashboard">Questr</NavLink>
+        <NavLink className="links" to="/">Questr</NavLink>
       </LeftSection>
       <Search {...props} />
       <RightSection>
